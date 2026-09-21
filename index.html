@@ -83,7 +83,7 @@ footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;borde
 <!-- Category Tabs -->
 <div class="filters">
   <button class="filter-btn active" onclick="filterMenu('all', this)">All Items</button>
-  <button class="filter-btn" onclick="filterMenu('snacks', this)">Snacks &amp; Fast Food</button>
+  <button class="filter-btn" onclick="filterMenu('snacks', this)">Snacks &amp; Namkeen</button>
   <button class="filter-btn" onclick="filterMenu('sweets', this)">Sweets</button>
 </div>
 
@@ -117,15 +117,20 @@ footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;borde
 
 <script>
 const products = [
-  // 1. SNACKS & FAST FOOD
+  // 1. SNACKS & NAMKEEN
   {name:"Samosa", price:15, unit:"piece", displayPrice:"₹15", note:"Crispy hot spiced potato samosa", cat:"snacks", file:"samosa.png"},
   {name:"Bread Pakoda", price:20, unit:"piece", displayPrice:"₹20", note:"Hot stuffed potato bread pakoda", cat:"snacks", file:"bread-pakoda.png"},
   {name:"Chowmein", price:80, unit:"full", displayPrice:"₹80", note:"Spicy veg noodles full plate", cat:"snacks", file:"chowmein.png"},
+  {name:"Namak Para", price:200, unit:"kg", displayPrice:"₹200", note:"Crispy savory crunchy namak para", cat:"snacks", file:"namak para.png"},
 
-  // 2. MODAK, GHEVAR & JALEBI
+  // 2. NEW SWEETS
+  {name:"Gujiya", price:400, unit:"kg", displayPrice:"₹400", note:"Rich khoya dry fruit stuffed gujiya", cat:"sweets", file:"gujiya.png"},
+  {name:"Boondi (Prasaad)", price:200, unit:"kg", displayPrice:"₹200", note:"Meethi fresh boondi prasaad", cat:"sweets", file:"boondi.png"},
+  {name:"Jodhpuri Boondi Laddu", price:300, unit:"kg", displayPrice:"₹300", note:"Special royal jodhpuri boondi laddu", cat:"sweets", file:"jodhpuri boondi laddu.png"},
+  {name:"Peda", price:400, unit:"kg", displayPrice:"₹400", note:"Traditional rich mawa peda", cat:"sweets", file:"peda.png"},
   {name:"Modak", price:400, unit:"kg", displayPrice:"₹400", note:"Pure mawa modak with silver vark & kesar", cat:"sweets", file:"modak.png"},
   {name:"Ghevar", price:400, unit:"kg", displayPrice:"₹400", note:"Crispy honeycomb traditional ghevar", cat:"sweets", file:"Ghevar.png"},
-  {name:"Jalebi", price:240, unit:"kg", displayPrice:"₹240", note:"Hot, crisp & juicy desi ghee jalebi", cat:"sweets", file:"jalebi.png"},
+  {name:"Jalebi", price:240, unit:"kg", displayPrice:"₹240", note:"Hot, crisp & juicy jalebi", cat:"sweets", file:"jalebi.png"},
 
   // 3. WHITE RASGULLAS
   {name:"Chhota White Rasgulla", price:300, unit:"kg", displayPrice:"₹300", note:"Mini soft spongy juicy chhena", cat:"sweets", file:"Chhota white rasgulla.png"},
@@ -139,7 +144,7 @@ const products = [
   // 5. TRADITIONAL SWEETS & BARFIS
   {name:"Kaju Katli", price:900, unit:"kg", displayPrice:"₹900", note:"Pure cashews with silver vark", cat:"sweets", file:"Kaju_katli.png"},
   {name:"Motichoor Laddu", price:240, unit:"kg", displayPrice:"₹240", note:"Fine boondi laddu", cat:"sweets", file:"Motichoor_Laddu.png"},
-  {name:"Besan Laddu", price:240, unit:"kg", displayPrice:"₹240", note:"Roasted besan", cat:"sweets", file:"Besan_Laddu.png"},
+  {name:"Besan Laddu", price:240, unit:"kg", displayPrice:"₹240", note:"Roasted besan laddu", cat:"sweets", file:"Besan_Laddu.png"},
   {name:"Plain Barfi", price:400, unit:"kg", displayPrice:"₹400", note:"Khoya barfi with pista decoration", cat:"sweets", file:"plain_Burfi.png"},
   {name:"Badam Barfi", price:450, unit:"kg", displayPrice:"₹450", note:"Khoya barfi with badam slice", cat:"sweets", file:"Badam Barfi.png"},
   {name:"Dhoda Barfi", price:360, unit:"kg", displayPrice:"₹360", note:"Rich dry fruit roasted barfi", cat:"sweets", file:"Dhoda_Burfi.png"},
