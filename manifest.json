@@ -1,0 +1,15 @@
+{
+  "name": "Ankit Aggarwal Sweets",
+  "short_name": "Aggarwal Sweets",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#5b0b16",
+  "theme_color": "#5b0b16",
+  "icons": [
+    {
+      "src": "Rasgulla.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
