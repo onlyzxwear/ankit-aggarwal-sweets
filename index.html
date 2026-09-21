@@ -11,35 +11,60 @@ header{position:sticky;top:0;z-index:20;background:rgba(53,7,13,.97);color:#fff;
 .brand{text-decoration:none;color:#fff;line-height:.9}.brand small{display:block;text-align:center;color:#f1c95c;font-size:16px}.brand strong{display:block;color:#f4c84e;font-size:30px;letter-spacing:1px}
 nav{display:flex;gap:24px}nav a{color:#fff;text-decoration:none;font-size:15px}nav a:hover{color:#f4c84e}
 .whatsapp{color:#fff;text-decoration:none;font-family:Arial,sans-serif;font-weight:700}.wa-dot{display:inline-flex;background:#25d366;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;margin-right:7px}
-.hero{min-height:500px;display:flex;align-items:center;position:relative;overflow:hidden;background:#21070a;color:#fff}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,3,5,.92) 0%,rgba(25,3,5,.68) 43%,rgba(25,3,5,.25) 100%),url("https://images.pexels.com/photos/14463037/pexels-photo-14463037.jpeg?auto=compress&cs=tinysrgb&w=1200") center/cover no-repeat;filter:saturate(1.08)}
-.hero-content{position:relative;z-index:1;padding:65px 7%;max-width:720px}.eyebrow{color:#f1c95c;font-size:23px;font-style:italic}.hero h1{font-size:62px;line-height:1;margin:14px 0;color:#f4c84e}.hero h1 span{display:block;font-size:25px;color:#fff;font-weight:400;letter-spacing:3px;margin-bottom:9px}.hero p{font-size:19px}.btn{display:inline-block;background:#f4c84e;color:#35100c;text-decoration:none;padding:14px 27px;border-radius:30px;font-weight:700;border:0;cursor:pointer}
-.features{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;padding:24px 6%;gap:10px;text-align:center;border-bottom:1px solid #ead8b5}.feature{padding:8px;border-right:1px solid #ddc8a0}.feature:last-child{border:0}.feature b{display:block;font-size:18px}.feature span{font-family:Arial,sans-serif;font-size:12px;color:#72584c}
+
+.hero{min-height:480px;display:flex;align-items:center;position:relative;overflow:hidden;background:#21070a;color:#fff}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,3,5,.92) 0%,rgba(25,3,5,.68) 43%,rgba(25,3,5,.25) 100%),url("mithai-all.png") center/cover no-repeat;filter:saturate(1.08)}
+.hero-content{position:relative;z-index:1;padding:65px 7%;max-width:720px}.eyebrow{color:#f1c95c;font-size:23px;font-style:italic}.hero h1{font-size:58px;line-height:1;margin:14px 0;color:#f4c84e}.hero h1 span{display:block;font-size:24px;color:#fff;font-weight:400;letter-spacing:3px;margin-bottom:9px}.hero p{font-size:19px}.btn{display:inline-block;background:#f4c84e;color:#35100c;text-decoration:none;padding:13px 26px;border-radius:30px;font-weight:700;border:0;cursor:pointer}
+
+.features{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;padding:22px 6%;gap:10px;text-align:center;border-bottom:1px solid #ead8b5}.feature{padding:8px;border-right:1px solid #ddc8a0}.feature:last-child{border:0}.feature b{display:block;font-size:17px}.feature span{font-family:Arial,sans-serif;font-size:12px;color:#72584c}
 
 /* Filter Navigation */
-.filter-nav{display:flex;justify-content:center;gap:12px;margin:25px auto 10px;padding:0 10px;position:sticky;top:65px;z-index:15;background:var(--cream)}
-.f-btn{background:#eddcc2;border:1px solid #d5bf9f;padding:9px 22px;border-radius:25px;font-family:Arial,sans-serif;font-weight:bold;font-size:14px;color:var(--deep);cursor:pointer;transition:.2s}
-.f-btn.active,.f-btn:hover{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.filters{display:flex;justify-content:center;gap:12px;margin:25px auto 10px;padding:0 10px;position:sticky;top:65px;z-index:15;background:var(--cream)}
+.filter-btn{background:#eddcc2;border:1px solid #d5bf9f;padding:9px 22px;border-radius:25px;font-family:Arial,sans-serif;font-weight:bold;font-size:14px;color:var(--deep);cursor:pointer;transition:.2s}
+.filter-btn.active,.filter-btn:hover{background:var(--maroon);color:#fff;border-color:var(--maroon)}
 
-section{padding:40px 5%}.title{text-align:center;margin-bottom:25px}.title small{color:#9d5a27;font-weight:bold;letter-spacing:2px}.title h2{font-size:38px;margin:7px 0;color:var(--maroon)}.title p{font-family:Arial,sans-serif;color:#72584c}
+section{padding:40px 5%}.title{text-align:center;margin-bottom:25px}.title small{color:#9d5a27;font-weight:bold;letter-spacing:2px}.title h2{font-size:36px;margin:7px 0;color:var(--maroon)}.title p{font-family:Arial,sans-serif;color:#72584c}
+
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1250px;margin:auto}
 .card{background:#fff;border:1px solid #eadbc4;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(73,30,10,.08);display:flex;flex-direction:column}
-.card .pic{height:165px;width:100%;overflow:hidden;background:#f5ecdf}
-.card .pic img{width:100%;height:100%;object-fit:cover;display:block}
-.card h3{margin:13px 12px 3px;text-align:center;font-size:18px}
+.card .pic{height:165px;width:100%;background-color:#f5ecdf;background-repeat:no-repeat;background-size:cover}
+.card h3{margin:12px 10px 2px;text-align:center;font-size:18px}
 .price{text-align:center;color:#b30f23;font-size:19px;font-weight:700}
 .unit{font-size:13px;color:#555;font-weight:400}
 .note{font:11px Arial,sans-serif;text-align:center;color:#777;min-height:16px;padding:2px 8px}
 .add{margin:10px 12px 14px;background:var(--maroon);color:#fff;border:0;border-radius:22px;padding:11px;cursor:pointer;font-weight:700;font-family:Arial,sans-serif;transition:.2s}
 .add:hover{background:#820f20}
 
-.offer{background:linear-gradient(100deg,#fff0d1,#f8d38a);display:flex;align-items:center;justify-content:space-between;gap:25px}.offer h2{font-size:38px;color:var(--maroon);margin:5px 0}.offer p{font-family:Arial,sans-serif}
+/* Precise CSS Sprites for Sweets from mithai-all.png */
+.pic-mithai{background-image:url("mithai-all.png") !important;background-size:620% auto !important}
+.pos-rasgulla{background-position:3% 36% !important}
+.pos-gulab-jamun{background-position:20% 36% !important}
+.pos-kaju-katli{background-position:40% 36% !important}
+.pos-motichoor{background-position:60% 36% !important}
+.pos-besan{background-position:79% 36% !important}
+.pos-dhoda{background-position:10% 60% !important}
+.pos-plain-barfi{background-position:26% 60% !important}
+.pos-badam-barfi{background-position:43% 60% !important}
+.pos-milkcake{background-position:61% 60% !important}
+.pos-kalakand{background-position:78% 60% !important}
+.pos-cham-white{background-position:26% 82% !important}
+.pos-cham-black{background-position:43% 82% !important}
+.pos-rasmalai{background-position:61% 82% !important}
+.pos-sponge{background-position:79% 82% !important}
+
+/* Direct snacks images */
+.pic-samosa{background-image:url("samosa.png") !important;background-position:center !important;background-size:cover !important}
+.pic-bread{background-image:url("bread-pakoda.png") !important;background-position:center !important;background-size:cover !important}
+.pic-chowmein{background-image:url("chowmein.png") !important;background-position:center !important;background-size:cover !important}
+
+.offer{background:linear-gradient(100deg,#fff0d1,#f8d38a);display:flex;align-items:center;justify-content:space-between;gap:25px}.offer h2{font-size:36px;color:var(--maroon);margin:5px 0}.offer p{font-family:Arial,sans-serif}
 .about{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:25px;align-items:center}.about h2{color:var(--maroon)}.about p{font-family:Arial,sans-serif;line-height:1.7}.contact{background:#fff;padding:25px;border-radius:14px}.contact b{color:var(--maroon)}.map{height:220px;border-radius:12px;background:#e8dfd0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Arial,sans-serif;color:#68483d}
 footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;border-top:2px solid var(--gold)}footer .brand{display:inline-block;margin-bottom:15px}
 .cart{position:fixed;right:22px;bottom:22px;z-index:30;background:#25d366;color:#fff;border:0;border-radius:50px;padding:14px 22px;font-weight:700;box-shadow:0 8px 22px #0004;cursor:pointer;font-family:Arial,sans-serif}.cart span{background:#fff;color:#168b40;border-radius:50%;padding:2px 8px;margin-left:5px}
 .drawer{position:fixed;right:0;top:0;height:100%;width:min(390px,92vw);background:#fff;z-index:50;box-shadow:-8px 0 30px #0003;transform:translateX(100%);transition:.3s;padding:25px;overflow:auto}.drawer.open{transform:none}.drawer h2{color:var(--maroon)}.item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:12px 0;font-family:Arial,sans-serif}.close{float:right;border:0;background:none;font-size:25px;cursor:pointer}.checkout{width:100%;padding:13px;background:var(--maroon);color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer;margin-top:15px;font-family:Arial,sans-serif}
 
-@media(max-width:900px){nav{display:none}.hero h1{font-size:45px}.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.offer{display:block}.hero{min-height:540px}}
-@media(max-width:520px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card .pic{height:125px}.card h3{font-size:15px}.price{font-size:16px}.hero-content{padding:50px 6%}.hero h1{font-size:37px}.hero h1 span{font-size:19px}.features{font-size:12px}.title h2{font-size:30px}}
+@media(max-width:900px){nav{display:none}.hero h1{font-size:42px}.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.offer{display:block}.hero{min-height:500px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card .pic{height:125px}.card h3{font-size:15px}.price{font-size:16px}.hero-content{padding:45px 6%}.hero h1{font-size:34px}.hero h1 span{font-size:18px}.features{font-size:12px}.title h2{font-size:28px}}
 </style>
 </head>
 <body>
@@ -69,10 +94,10 @@ footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;borde
 </div>
 
 <!-- Category Tabs -->
-<div class="filter-nav">
-  <button class="f-btn active" onclick="filterMenu('all', this)">All Items</button>
-  <button class="f-btn" onclick="filterMenu('snacks', this)">Snacks &amp; Fast Food</button>
-  <button class="f-btn" onclick="filterMenu('sweets', this)">Sweets</button>
+<div class="filters">
+  <button class="filter-btn active" onclick="filterMenu('all', this)">All Items</button>
+  <button class="filter-btn" onclick="filterMenu('snacks', this)">Snacks &amp; Fast Food</button>
+  <button class="filter-btn" onclick="filterMenu('sweets', this)">Sweets</button>
 </div>
 
 <div class="grid" id="productGrid"></div>
@@ -104,30 +129,27 @@ footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;borde
 </aside>
 
 <script>
-// Hotlink-Safe High Speed Image URLs
-const fallbackImg = "https://images.pexels.com/photos/14463037/pexels-photo-14463037.jpeg?auto=compress&cs=tinysrgb&w=500";
-
 const products = [
   // 1. SNACKS & FAST FOOD
-  {name:"Samosa", price:15, unit:"piece", note:"Crispy hot spiced potato samosa", cat:"snacks", img:"https://images.pexels.com/photos/4449068/pexels-photo-4449068.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Bread Pakoda", price:20, unit:"piece", note:"Hot stuffed potato bread pakoda", cat:"snacks", img:"https://images.pexels.com/photos/12737656/pexels-photo-12737656.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Chowmein", price:80, unit:"full", note:"Spicy veg noodles full plate", cat:"snacks", img:"https://images.pexels.com/photos/2347311/pexels-photo-2347311.jpeg?auto=compress&cs=tinysrgb&w=500"},
+  {name:"Samosa", price:15, unit:"piece", note:"Crispy hot spiced potato filling", cat:"snacks", picClass:"pic-samosa"},
+  {name:"Bread Pakoda", price:20, unit:"piece", note:"Hot potato stuffed bread pakoda", cat:"snacks", picClass:"pic-bread"},
+  {name:"Chowmein", price:80, unit:"full", note:"Spicy veg noodles full plate", cat:"snacks", picClass:"pic-chowmein"},
 
-  // 2. SWEETS
-  {name:"Rasgulla", price:300, unit:"kg", note:"Juicy chhena rasgulla", cat:"sweets", img:"https://images.pexels.com/photos/7449104/pexels-photo-7449104.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Gulab Jamun", price:300, unit:"kg", note:"Hot soft khoya gulab jamun", cat:"sweets", img:"https://images.pexels.com/photos/14463037/pexels-photo-14463037.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Kaju Katli", price:900, unit:"kg", note:"Pure cashews with silver vark", cat:"sweets", img:"https://images.pexels.com/photos/10985906/pexels-photo-10985906.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Motichoor Laddu", price:240, unit:"kg", note:"Fine boondi desi ghee laddu", cat:"sweets", img:"https://images.pexels.com/photos/7449108/pexels-photo-7449108.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Besan Laddu", price:240, unit:"kg", note:"Roasted besan & pure ghee", cat:"sweets", img:"https://images.pexels.com/photos/7449109/pexels-photo-7449109.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Dhoda Barfi", price:360, unit:"kg", note:"Rich dry fruit roasted barfi", cat:"sweets", img:"https://images.pexels.com/photos/8887056/pexels-photo-8887056.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Plain Barfi", price:400, unit:"kg", note:"Khoya barfi with pista decoration", cat:"sweets", img:"https://images.pexels.com/photos/10985905/pexels-photo-10985905.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Badam Barfi", price:450, unit:"kg", note:"Khoya barfi with badam slice", cat:"sweets", img:"https://images.pexels.com/photos/10985904/pexels-photo-10985904.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Milkcake", price:360, unit:"kg", note:"Traditional danedaar milk cake", cat:"sweets", img:"https://images.pexels.com/photos/8887055/pexels-photo-8887055.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Kalakand", price:400, unit:"kg", note:"Soft fresh mawa kalakand", cat:"sweets", img:"https://images.pexels.com/photos/10985907/pexels-photo-10985907.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Cham Cham White", price:450, unit:"kg", note:"White cham cham with khoya", cat:"sweets", img:"https://images.pexels.com/photos/7449105/pexels-photo-7449105.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Cham Cham Black", price:450, unit:"kg", note:"Black cham cham with khoya", cat:"sweets", img:"https://images.pexels.com/photos/14463038/pexels-photo-14463038.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Rasmalai", price:35, unit:"piece", note:"Chilled kesar rabdi rasmalai", cat:"sweets", img:"https://images.pexels.com/photos/7449106/pexels-photo-7449106.jpeg?auto=compress&cs=tinysrgb&w=500"},
-  {name:"Sponge Rasgulla", price:30, unit:"piece", note:"Light and spongy rasgulla", cat:"sweets", img:"https://images.pexels.com/photos/7449107/pexels-photo-7449107.jpeg?auto=compress&cs=tinysrgb&w=500"}
+  // 2. SWEETS (Cropped from your mithai image)
+  {name:"Rasgulla", price:300, unit:"kg", note:"Juicy chhena rasgulla", cat:"sweets", picClass:"pic-mithai pos-rasgulla"},
+  {name:"Gulab Jamun", price:300, unit:"kg", note:"Hot soft khoya gulab jamun", cat:"sweets", picClass:"pic-mithai pos-gulab-jamun"},
+  {name:"Kaju Katli", price:900, unit:"kg", note:"Pure cashews with silver vark", cat:"sweets", picClass:"pic-mithai pos-kaju-katli"},
+  {name:"Motichoor Laddu", price:240, unit:"kg", note:"Fine boondi desi ghee laddu", cat:"sweets", picClass:"pic-mithai pos-motichoor"},
+  {name:"Besan Laddu", price:240, unit:"kg", note:"Roasted besan & pure ghee", cat:"sweets", picClass:"pic-mithai pos-besan"},
+  {name:"Dhoda Barfi", price:360, unit:"kg", note:"Rich dry fruit roasted barfi", cat:"sweets", picClass:"pic-mithai pos-dhoda"},
+  {name:"Plain Barfi", price:400, unit:"kg", note:"Khoya barfi with pista decoration", cat:"sweets", picClass:"pic-mithai pos-plain-barfi"},
+  {name:"Badam Barfi", price:450, unit:"kg", note:"Khoya barfi with badam slice", cat:"sweets", picClass:"pic-mithai pos-badam-barfi"},
+  {name:"Milkcake", price:360, unit:"kg", note:"Traditional danedaar milk cake", cat:"sweets", picClass:"pic-mithai pos-milkcake"},
+  {name:"Kalakand", price:400, unit:"kg", note:"Soft fresh mawa kalakand", cat:"sweets", picClass:"pic-mithai pos-kalakand"},
+  {name:"Cham Cham White", price:450, unit:"kg", note:"White cham cham with khoya", cat:"sweets", picClass:"pic-mithai pos-cham-white"},
+  {name:"Cham Cham Black", price:450, unit:"kg", note:"Black cham cham with khoya", cat:"sweets", picClass:"pic-mithai pos-cham-black"},
+  {name:"Rasmalai", price:35, unit:"piece", note:"Chilled kesar rabdi rasmalai", cat:"sweets", picClass:"pic-mithai pos-rasmalai"},
+  {name:"Sponge Rasgulla", price:30, unit:"piece", note:"Light and spongy rasgulla", cat:"sweets", picClass:"pic-mithai pos-sponge"}
 ];
 
 let cart = [];
@@ -140,9 +162,7 @@ function renderMenu(){
     if(currentTab !== 'all' && p.cat !== currentTab) return;
     grid.insertAdjacentHTML("beforeend", `
       <article class="card">
-        <div class="pic">
-          <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='${fallbackImg}'">
-        </div>
+        <div class="pic ${p.picClass}"></div>
         <h3>${p.name}</h3>
         <div class="price">₹${p.price} <span class="unit">/ ${p.unit}</span></div>
         <div class="note">${p.note}</div>
@@ -154,7 +174,7 @@ function renderMenu(){
 
 function filterMenu(cat, btn){
   currentTab = cat;
-  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderMenu();
 }
