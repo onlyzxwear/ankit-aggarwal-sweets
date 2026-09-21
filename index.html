@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ankit Aggarwal Sweets</title>
+<!-- PWA & App Meta Tags -->
+<meta name="theme-color" content="#5b0b16">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Aggarwal Sweets">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="Rasgulla.png">
+
 <style>
 :root{--maroon:#5b0b16;--deep:#35070d;--gold:#d9a62e;--cream:#fff8ec;--text:#351d18}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,"Times New Roman",serif;background:var(--cream);color:var(--text);padding-bottom:80px}
@@ -108,16 +116,15 @@ footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;borde
 </aside>
 
 <script>
-// EXACT FILENAMES MATCHED WITH YOUR GITHUB REPOSITORY SCREENSHOT
 const products = [
   // 1. SNACKS & FAST FOOD
   {name:"Samosa", price:15, unit:"piece", displayPrice:"₹15", note:"Crispy hot spiced potato samosa", cat:"snacks", file:"samosa.png"},
   {name:"Bread Pakoda", price:20, unit:"piece", displayPrice:"₹20", note:"Hot stuffed potato bread pakoda", cat:"snacks", file:"bread-pakoda.png"},
   {name:"Chowmein", price:80, unit:"full", displayPrice:"₹80", note:"Spicy veg noodles full plate", cat:"snacks", file:"chowmein.png"},
 
-  // 2. GHEWAR & JALEBI
+  // 2. GHEVAR & JALEBI
   {name:"Ghevar", price:400, unit:"kg", displayPrice:"₹400", note:"Crispy honeycomb traditional ghevar", cat:"sweets", file:"Ghevar.png"},
-  {name:"Jalebi", price:0, unit:"", displayPrice:"Fresh", note:"Hot, crisp & juicy desi ghee jalebi", cat:"sweets", file:"jalebi.png"},
+  {name:"Jalebi", price:240, unit:"kg", displayPrice:"₹240", note:"Hot, crisp & juicy desi ghee jalebi", cat:"sweets", file:"jalebi.png"},
 
   // 3. WHITE RASGULLAS
   {name:"Chhota White Rasgulla", price:300, unit:"kg", displayPrice:"₹300", note:"Mini soft spongy juicy chhena", cat:"sweets", file:"Chhota white rasgulla.png"},
@@ -151,8 +158,7 @@ function renderMenu(){
   products.forEach((p, idx) => {
     if(currentTab !== 'all' && p.cat !== currentTab) return;
     
-    let priceText = p.unit ? `${p.displayPrice} <span class="unit">/ ${p.unit}</span>` : `${p.displayPrice}`;
-    // encodeURIComponent handles spaces in filenames like "Milk Cake.png"
+    let priceText = `${p.displayPrice} <span class="unit">/ ${p.unit}</span>`;
     let safeUrl = encodeURIComponent(p.file).replace(/%2F/g, '/');
 
     grid.insertAdjacentHTML("beforeend", `
@@ -191,7 +197,7 @@ function renderCart(){
   el.innerHTML = cart.map(p => `
     <div class="item">
       <span>${p.name}</span>
-      <b>${p.price > 0 ? '₹' + p.price : 'Fresh'}</b>
+      <b>₹${p.price}</b>
     </div>
   `).join("");
   document.getElementById("total").textContent = "Total: ₹" + total;
@@ -207,7 +213,7 @@ function sendOrder(){
     return;
   }
   let text = "Hello Ankit Aggarwal Sweets, I want to order:%0A" + 
-    cart.map(p => `• ${p.name} - ${p.price > 0 ? '₹'+p.price+'/'+p.unit : 'Price on request'}`).join("%0A") + 
+    cart.map(p => `• ${p.name} - ₹${p.price}/${p.unit}`).join("%0A") + 
     "%0A%0A" + document.getElementById("total").textContent;
   window.open("https://wa.me/917838186908?text=" + text, "_blank");
 }
