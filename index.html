@@ -1,172 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ankit Aggarwal Sweets</title>
 <style>
 :root{--maroon:#5b0b16;--deep:#35070d;--gold:#d9a62e;--cream:#fff8ec;--text:#351d18}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,"Times New Roman",serif;background:var(--cream);color:var(--text)}
-header{position:sticky;top:0;z-index:20;background:rgba(53,7,13,.97);color:#fff;padding:13px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold)}
-.brand{text-decoration:none;color:#fff;line-height:.9}.brand small{display:block;text-align:center;color:#f1c95c;font-size:16px}.brand strong{display:block;color:#f4c84e;font-size:30px;letter-spacing:1px}
-nav{display:flex;gap:24px}nav a{color:#fff;text-decoration:none;font-size:15px}nav a:hover{color:#f4c84e}
-.whatsapp{color:#fff;text-decoration:none;font-family:Arial,sans-serif;font-weight:700}.wa-dot{display:inline-flex;background:#25d366;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;margin-right:7px}
-.hero{min-height:480px;display:flex;align-items:center;position:relative;overflow:hidden;background:#21070a;color:#fff}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,3,5,.92) 0%,rgba(25,3,5,.68) 43%,rgba(25,3,5,.25) 100%),url("https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;filter:saturate(1.08)}
-.hero-content{position:relative;z-index:1;padding:60px 7%;max-width:720px}.eyebrow{color:#f1c95c;font-size:23px;font-style:italic}.hero h1{font-size:58px;line-height:1;margin:14px 0;color:#f4c84e}.hero h1 span{display:block;font-size:24px;color:#fff;font-weight:400;letter-spacing:3px;margin-bottom:8px}.hero p{font-size:18px}.btn{display:inline-block;background:#f4c84e;color:#35100c;text-decoration:none;padding:13px 26px;border-radius:30px;font-weight:700;border:0;cursor:pointer}
-.features{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;padding:22px 6%;gap:10px;text-align:center;border-bottom:1px solid #ead8b5}.feature{padding:8px;border-right:1px solid #ddc8a0}.feature:last-child{border:0}.feature b{display:block;font-size:17px}.feature span{font-family:Arial,sans-serif;font-size:12px;color:#72584c}
-section{padding:50px 5%}.title{text-align:center;margin-bottom:25px}.title small{color:#9d5a27;font-weight:bold;letter-spacing:2px}.title h2{font-size:36px;margin:7px 0;color:var(--maroon)}.title p{font-family:Arial,sans-serif;color:#72584c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,"Times New Roman",serif;background:var(--cream);color:var(--text);padding-bottom:80px}
+header{position:sticky;top:0;z-index:100;background:rgba(53,7,13,.98);color:#fff;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold)}
+.brand{text-decoration:none;color:#fff;line-height:.9}.brand small{display:block;text-align:center;color:#f1c95c;font-size:15px}.brand strong{display:block;color:#f4c84e;font-size:26px;letter-spacing:1px}
+nav{display:flex;gap:20px}nav a{color:#fff;text-decoration:none;font-size:14px}nav a:hover{color:#f4c84e}
+.whatsapp{color:#fff;text-decoration:none;font-family:Arial,sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center}
+.wa-dot{display:inline-flex;background:#25d366;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;margin-right:6px}
 
-/* Filter Buttons */
-.filters{display:flex;justify-content:center;gap:12px;margin-bottom:30px;flex-wrap:wrap}
-.filter-btn{background:#eddcc2;color:var(--deep);border:1px solid #d8c29d;padding:9px 20px;border-radius:25px;font-family:Arial,sans-serif;font-weight:bold;font-size:14px;cursor:pointer;transition:.2s}
+/* Category Filter Tabs */
+.filter-bar{position:sticky;top:60px;z-index:90;background:var(--cream);padding:14px 5%;display:flex;justify-content:center;gap:10px;border-bottom:1px solid #e2d2b8}
+.filter-btn{background:#e8dac5;border:1px solid #d4c0a5;color:var(--deep);font-family:Arial,sans-serif;padding:8px 18px;border-radius:22px;font-size:14px;font-weight:700;cursor:pointer;transition:.2s}
 .filter-btn.active,.filter-btn:hover{background:var(--maroon);color:#fff;border-color:var(--maroon)}
 
-/* Products Grid */
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1250px;margin:auto}
-.card{background:#fff;border:1px solid #eadbc4;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(73,30,10,.08);display:flex;flex-direction:column;transition:transform .2s}
-.card:hover{transform:translateY(-3px)}
-.card .pic{height:160px;width:100%;overflow:hidden;background:#f3eae1}
+/* Product Grid */
+section{padding:30px 5%}.title{text-align:center;margin-bottom:25px}.title small{color:#9d5a27;font-weight:bold;letter-spacing:2px}.title h2{font-size:32px;margin:5px 0;color:var(--maroon)}.title p{font-family:Arial,sans-serif;color:#72584c}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1250px;margin:auto}
+.card{background:#fff;border:1px solid #eadbc4;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(73,30,10,.08);display:flex;flex-direction:column}
+.card .pic{height:160px;width:100%;overflow:hidden;background:#f3e8dc}
 .card .pic img{width:100%;height:100%;object-fit:cover;display:block}
-.card h3{margin:12px 10px 2px;text-align:center;font-size:18px}
-.price{text-align:center;color:#b30f23;font-size:19px;font-weight:700}
+.card h3{margin:12px 10px 2px;text-align:center;font-size:17px;color:#222}
+.price{text-align:center;color:#b30f23;font-size:18px;font-weight:700}
 .unit{font-size:13px;color:#555;font-weight:400}
-.note{font:11px Arial,sans-serif;text-align:center;color:#777;min-height:16px;padding:2px 8px}
-.add{margin:10px 12px 14px;background:var(--maroon);color:#fff;border:0;border-radius:22px;padding:11px;cursor:pointer;font-weight:700;transition:.2s}
+.note{font:11px Arial,sans-serif;text-align:center;color:#777;min-height:16px;padding:2px 8px;margin-bottom:4px}
+.add{margin:8px 12px 14px;background:var(--maroon);color:#fff;border:0;border-radius:20px;padding:10px;cursor:pointer;font-weight:700;font-family:Arial,sans-serif}
 .add:hover{background:#820f20}
 
-.offer{background:linear-gradient(100deg,#fff0d1,#f8d38a);display:flex;align-items:center;justify-content:space-between;gap:25px}.offer h2{font-size:36px;color:var(--maroon);margin:5px 0}.offer p{font-family:Arial,sans-serif}
-.about{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:25px;align-items:center}.about h2{color:var(--maroon)}.about p{font-family:Arial,sans-serif;line-height:1.7}.contact{background:#fff;padding:25px;border-radius:14px}.contact b{color:var(--maroon)}.map{height:220px;border-radius:12px;background:#e8dfd0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Arial,sans-serif;color:#68483d}
-footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;border-top:2px solid var(--gold)}footer .brand{display:inline-block;margin-bottom:15px}
-.cart{position:fixed;right:22px;bottom:22px;z-index:30;background:#25d366;color:#fff;border:0;border-radius:50px;padding:14px 20px;font-weight:700;box-shadow:0 8px 22px #0004;cursor:pointer;font-family:Arial,sans-serif}.cart span{background:#fff;color:#168b40;border-radius:50%;padding:2px 8px;margin-left:5px}
-.drawer{position:fixed;right:0;top:0;height:100%;width:min(390px,92vw);background:#fff;z-index:50;box-shadow:-8px 0 30px #0003;transform:translateX(100%);transition:.3s;padding:25px;overflow:auto}.drawer.open{transform:none}.drawer h2{color:var(--maroon)}.item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:12px 0;font-family:Arial,sans-serif}.close{float:right;border:0;background:none;font-size:25px;cursor:pointer}.checkout{width:100%;padding:13px;background:var(--maroon);color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer;margin-top:15px}
+/* Address Box */
+.about-wrap{max-width:1100px;margin:20px auto;background:#fff;padding:22px;border-radius:12px;border:1px solid #eddcca;display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:center}
+.about-wrap h3{color:var(--maroon);margin-bottom:6px}
+.about-wrap p{font-family:Arial,sans-serif;font-size:14px;color:#555;line-height:1.6}
 
-@media(max-width:900px){nav{display:none}.hero h1{font-size:42px}.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.offer{display:block}.hero{min-height:500px}}
-@media(max-width:520px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card .pic{height:120px}.card h3{font-size:15px}.price{font-size:16px}.hero-content{padding:45px 6%}.hero h1{font-size:34px}.hero h1 span{font-size:18px}.features{font-size:12px}.title h2{font-size:28px}}
+/* Floating Cart & Drawer */
+.cart{position:fixed;right:18px;bottom:18px;z-index:110;background:#25d366;color:#fff;border:0;border-radius:50px;padding:13px 20px;font-weight:700;box-shadow:0 6px 20px #0004;cursor:pointer;font-family:Arial,sans-serif}
+.cart span{background:#fff;color:#168b40;border-radius:50%;padding:2px 8px;margin-left:5px}
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(380px,90vw);background:#fff;z-index:120;box-shadow:-8px 0 30px #0003;transform:translateX(100%);transition:.3s;padding:22px;overflow:auto}
+.drawer.open{transform:none}.drawer h2{color:var(--maroon);margin-bottom:12px}.item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:10px 0;font-family:Arial,sans-serif}.close{float:right;border:0;background:none;font-size:24px;cursor:pointer}
+.checkout{width:100%;padding:12px;background:var(--maroon);color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer;margin-top:15px;font-family:Arial,sans-serif}
+
+@media(max-width:900px){nav{display:none}.grid{grid-template-columns:repeat(2,1fr)}.about-wrap{grid-template-columns:1fr}}
+@media(max-width:500px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card .pic{height:120px}.card h3{font-size:14px}.price{font-size:15px}}
 </style>
 </head>
 <body>
+
 <header>
-<a class="brand" href="#"><small>Ankit</small><strong>AGGARWAL SWEETS</strong></a>
-<nav><a href="#home">Home</a><a href="#menu">Our Menu</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav>
-<a class="whatsapp" href="https://wa.me/917838186908" target="_blank"><span class="wa-dot">☎</span>7838186908</a>
+  <a class="brand" href="#"><small>Ankit</small><strong>AGGARWAL SWEETS</strong></a>
+  <nav><a href="#menu">मेन्यू (Menu)</a><a href="#about">दुकान का पता</a></nav>
+  <a class="whatsapp" href="https://wa.me/917838186908" target="_blank"><span class="wa-dot">☎</span>7838186908</a>
 </header>
 
-<main id="home">
-<section class="hero">
-<div class="hero-content"><div class="eyebrow">Pure Desi Swad</div><h1><span>Ankit</span>AGGARWAL SWEETS</h1><p>Freshly Made Mithai &amp; Snacks with Love</p><a class="btn" href="#menu">Order Now →</a></div>
-</section>
-
-<div class="features">
-<div class="feature">🌿<b>100% Pure Taste</b><span>Fresh & high quality</span></div>
-<div class="feature">♡<b>Freshly Made Daily</b><span>Mithai & hot snacks</span></div>
-<div class="feature">🚚<b>Fast Delivery</b><span>Local area delivery</span></div>
-<div class="feature">✓<b>Easy Payments</b><span>UPI / Cash on delivery</span></div>
+<!-- Filter Buttons -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="setCategory('all', this)">सभी (All)</button>
+  <button class="filter-btn" onclick="setCategory('snacks', this)">स्नैक्स / चाट</button>
+  <button class="filter-btn" onclick="setCategory('sweets', this)">मिठाइयाँ (Sweets)</button>
 </div>
 
 <section id="menu">
-<div class="title">
-  <small>MENU &amp; RATE LIST</small>
-  <h2>Our Sweets &amp; Snacks</h2>
-  <p>Fresh sweets and piping hot fast food made daily</p>
-</div>
-
-<!-- Category Tabs -->
-<div class="filters">
-  <button class="filter-btn active" onclick="setCategory('all', this)">All Items</button>
-  <button class="filter-btn" onclick="setCategory('snacks', this)">Snacks &amp; Fast Food</button>
-  <button class="filter-btn" onclick="setCategory('sweets', this)">Traditional Sweets</button>
-</div>
-
-<div class="grid" id="productGrid"></div>
+  <div class="title">
+    <small>MENU &amp; RATE LIST</small>
+    <h2>हमारा मेन्यू</h2>
+    <p>शुद्ध देसी घी की मिठाइयाँ और गरमा-गरम नाश्ता</p>
+  </div>
+  <div class="grid" id="productGrid"></div>
 </section>
 
-<section class="offer"><div><small>Special Occasions</small><h2>Celebrate Life with Sweet Moments</h2><p>Special bulk orders available for weddings, parties, and festivals.</p><a class="btn" href="#menu">View Full Menu</a></div><div style="font-size:70px">🪔🍬</div></section>
-
-<section id="about"><div class="about">
-<div><h2>About Ankit Aggarwal Sweets</h2><p>Authentic taste of traditional Indian mithai and spicy hot snacks made with selected ingredients and pure desi taste. Choose your favorite items and order directly on WhatsApp.</p><a class="btn" href="https://wa.me/917838186908?text=Hello%20Ankit%20Aggarwal%20Sweets,%20I%20want%20to%20place%20an%20order." target="_blank">Order on WhatsApp</a></div>
-<div class="contact" id="contact"><h2>Visit Our Shop</h2><p><b>Address</b><br>C-471 Gali No 43<br>Mahaveer Enclave Part 3<br>60 Foot Road<br>New Delhi - 110059</p><p><b>Call / WhatsApp</b><br><a href="tel:7838186908">7838186908</a></p></div>
-<div class="map">📍<br><b>C-471 Gali No 43<br>Mahaveer Enclave Part 3<br>New Delhi 110059</b></div>
-</div></section>
-</main>
-
-<footer><a class="brand" href="#"><small>Ankit</small><strong>AGGARWAL SWEETS</strong></a><p>© 2026 Ankit Aggarwal Sweets. All Rights Reserved.</p></footer>
+<!-- Shop Details -->
+<div class="about-wrap" id="about">
+  <div>
+    <h3>Ankit Aggarwal Sweets</h3>
+    <p><b>पता:</b> C-471, गली नं 43, महावीर एन्क्लेव पार्ट 3, 60 फ़ुट रोड, नई दिल्ली - 110059</p>
+    <p>शादी-ब्याह, त्योहार व पार्टियों के लिए स्पेशल ऑर्डर स्वीकार किए जाते हैं।</p>
+  </div>
+  <div>
+    <p><b>फ़ोन / WhatsApp:</b> 7838186908</p>
+    <p><b>समय:</b> सुबह 8:00 से रात 10:30 तक</p>
+  </div>
+</div>
 
 <button class="cart" onclick="toggleCart()">🛒 Cart <span id="count">0</span></button>
 <aside class="drawer" id="drawer">
   <button class="close" onclick="toggleCart()">×</button>
   <h2>Your Cart</h2>
   <div id="cartItems">Cart is empty.</div>
-  <h3 id="total" style="margin-top:15px;color:var(--maroon)">Total: ₹0</h3>
+  <h3 id="total" style="margin-top:14px;color:var(--maroon)">Total: ₹0</h3>
   <button class="checkout" onclick="sendOrder()">Order on WhatsApp</button>
 </aside>
 
 <script>
-const products=[
-  // SNACKS
-  {name:"Samosa", price:15, unit:"piece", note:"Crispy spiced potato filling", cat:"snacks", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500&q=80"},
-  {name:"Bread Pakoda", price:20, unit:"piece", note:"Hot stuffed bread pakoda", cat:"snacks", img:"https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=500&q=80"},
-  {name:"Chowmein", price:80, unit:"full", note:"Spicy veg noodles full plate", cat:"snacks", img:"https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=500&q=80"},
-  
-  // SWEETS
-  {name:"Rasgulla", price:300, unit:"kg", note:"Juicy chhena rasgulla", cat:"sweets", img:"https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80"},
-  {name:"Gulab Jamun", price:300, unit:"kg", note:"Hot soft khoya gulab jamun", cat:"sweets", img:"https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80"},
-  {name:"Kaju Katli", price:900, unit:"kg", note:"Pure cashews with silver vark", cat:"sweets", img:"https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=500&q=80"},
-  {name:"Motichoor Laddu", price:240, unit:"kg", note:"Fine boondi desi ghee laddu", cat:"sweets", img:"https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80"},
-  {name:"Besan Laddu", price:240, unit:"kg", note:"Roasted besan & pure ghee", cat:"sweets", img:"https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=500&q=80"},
-  {name:"Dhoda Barfi", price:360, unit:"kg", note:"Rich dry fruit roasted barfi", cat:"sweets", img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80"},
-  {name:"Plain Barfi", price:400, unit:"kg", note:"Khoya barfi with pista cutting", cat:"sweets", img:"https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=500&q=80"},
-  {name:"Badam Barfi", price:450, unit:"kg", note:"Khoya barfi with badam slice", cat:"sweets", img:"https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=500&q=80"},
-  {name:"Milkcake", price:360, unit:"kg", note:"Traditional danedaar milk cake", cat:"sweets", img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80"},
-  {name:"Kalakand", price:400, unit:"kg", note:"Soft fresh mawa kalakand", cat:"sweets", img:"https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=500&q=80"},
-  {name:"Cham Cham White", price:450, unit:"kg", note:"White cham cham with khoya filling", cat:"sweets", img:"https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80"},
-  {name:"Cham Cham Black", price:450, unit:"kg", note:"Black cham cham with khoya filling", cat:"sweets", img:"https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80"},
-  {name:"Rasmalai", price:35, unit:"piece", note:"Chilled kesar rabdi rasmalai", cat:"sweets", img:"https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80"},
-  {name:"Sponge Rasgulla", price:30, unit:"piece", note:"Light and spongy rasgulla", cat:"sweets", img:"https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80"}
+// Verified & Direct Dish-Specific Images
+const products = [
+  // 1. SNACKS
+  {name: "Samosa", price: 15, unit: "piece", note: "गरमा-गरम क्रिस्पी समोसा", cat: "snacks", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Samosachutney.jpg/500px-Samosachutney.jpg"},
+  {name: "Bread Pakoda", price: 20, unit: "piece", note: "आलू स्टफ़्ड फ्राइड ब्रेड पकौड़ा", cat: "snacks", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bread_Pakora_%28Fried_Bread_Snack%29.jpg/500px-Bread_Pakora_%28Fried_Bread_Snack%29.jpg"},
+  {name: "Chowmein", price: 80, unit: "full", note: "स्पाइसी वेज चाउमीन फुल प्लेट", cat: "snacks", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Vegetable_Chow_mein.jpg/500px-Vegetable_Chow_mein.jpg"},
+
+  // 2. SWEETS
+  {name: "Rasgulla", price: 300, unit: "kg", note: "नरम व रसीला छेना रसगुल्ला", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Rasgullas_from_Odisha_and_Bengal.jpg/500px-Rasgullas_from_Odisha_and_Bengal.jpg"},
+  {name: "Gulab Jamun", price: 300, unit: "kg", note: "गर्म चाशनी में डूबा मावा गुलाब जामुन", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Gulab_jamun_made_by_me.jpg/500px-Gulab_jamun_made_by_me.jpg"},
+  {name: "Kaju Katli", price: 900, unit: "kg", note: "प्रीमियम काजू कतली चांदी वर्क सहित", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Kaju_katli_sweet.jpg/500px-Kaju_katli_sweet.jpg"},
+  {name: "Motichoor Laddu", price: 240, unit: "kg", note: "बारीक दानेदार देसी मोतीचूर लड्डू", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Motichoor_Laddoo.jpg/500px-Motichoor_Laddoo.jpg"},
+  {name: "Besan Laddu", price: 240, unit: "kg", note: "शुद्ध घी में भुने बेसन के लड्डू", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Besan_Laddoo.jpg/500px-Besan_Laddoo.jpg"},
+  {name: "Dhoda Barfi", price: 360, unit: "kg", note: "रोस्टेड मिल्क व ड्राई फ्रूट्स डोडा बर्फी", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Dhoda_sweet.jpg/500px-Dhoda_sweet.jpg"},
+  {name: "Plain Barfi", price: 400, unit: "kg", note: "खोया बर्फी पिस्ता कटिंग डेकोरेशन", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Khoya_barfi.jpg/500px-Khoya_barfi.jpg"},
+  {name: "Badam Barfi", price: 450, unit: "kg", note: "खोया बर्फी बादाम स्लाइस डेकोरेशन", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Badam_Burfi.jpg/500px-Badam_Burfi.jpg"},
+  {name: "Milkcake", price: 360, unit: "kg", note: "पारंपरिक दानेदार मलाई मिल्क केक", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Alwar_ka_Mawa_-_Milk_Cake.jpg/500px-Alwar_ka_Mawa_-_Milk_Cake.jpg"},
+  {name: "Kalakand", price: 400, unit: "kg", note: "मुलायम और ताज़ा मावा कलाकंद", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Kalakand_Sweet.jpg/500px-Kalakand_Sweet.jpg"},
+  {name: "Cham Cham White", price: 450, unit: "kg", note: "व्हाइट चमचम खोया भराई के साथ", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Chomchom_sweet.jpg/500px-Chomchom_sweet.jpg"},
+  {name: "Cham Cham Black", price: 450, unit: "kg", note: "ब्लैक चमचम खोया भराई के साथ", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kala_Jamun_or_Black_Cham_Cham.jpg/500px-Kala_Jamun_or_Black_Cham_Cham.jpg"},
+  {name: "Rasmalai", price: 35, unit: "piece", note: "ठंडी केसर-पिस्ता मलाई रबड़ी में", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Rasmalai_Sweet.jpg/500px-Rasmalai_Sweet.jpg"},
+  {name: "Sponge Rasgulla", price: 30, unit: "piece", note: "हल्का व एक्स्ट्रा स्पंजी छेना रसगुल्ला", cat: "sweets", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Sponge_Rasgulla.jpg/500px-Sponge_Rasgulla.jpg"}
 ];
 
-let cart=[];
-let currentCategory='all';
-const grid=document.getElementById("productGrid");
+let cart = [];
+let activeCat = 'all';
+const grid = document.getElementById("productGrid");
 
-function renderProducts(){
-  grid.innerHTML="";
-  products.forEach((p,i)=>{
-    if(currentCategory!=='all' && p.cat!==currentCategory) return;
-    grid.insertAdjacentHTML("beforeend",`
+function renderList(){
+  grid.innerHTML = "";
+  products.forEach((p, idx) => {
+    if(activeCat !== 'all' && p.cat !== activeCat) return;
+    grid.insertAdjacentHTML("beforeend", `
       <article class="card">
         <div class="pic"><img src="${p.img}" alt="${p.name}"></div>
         <h3>${p.name}</h3>
         <div class="price">₹${p.price} <span class="unit">/ ${p.unit}</span></div>
         <div class="note">${p.note}</div>
-        <button class="add" onclick="add(${i})">🛒 Add to Cart</button>
+        <button class="add" onclick="add(${idx})">🛒 Add to Cart</button>
       </article>
     `);
   });
 }
 
 function setCategory(cat, btn){
-  currentCategory=cat;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  activeCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  renderProducts();
+  renderList();
 }
 
 function add(i){
   cart.push(products[i]);
-  document.getElementById("count").textContent=cart.length;
+  document.getElementById("count").textContent = cart.length;
   renderCart();
 }
 
 function renderCart(){
-  const el=document.getElementById("cartItems");
+  const el = document.getElementById("cartItems");
   if(!cart.length){
-    el.textContent="Cart is empty.";
-    document.getElementById("total").textContent="Total: ₹0";
+    el.textContent = "Cart is empty.";
+    document.getElementById("total").textContent = "Total: ₹0";
     return;
   }
-  let total=cart.reduce((s,p)=>s+p.price,0);
-  el.innerHTML=cart.map(p=>`<div class="item"><span>${p.name}</span><b>₹${p.price}</b></div>`).join("");
-  document.getElementById("total").textContent="Total: ₹"+total;
+  let total = cart.reduce((sum, item) => sum + item.price, 0);
+  el.innerHTML = cart.map(item => `
+    <div class="item">
+      <span>${item.name}</span>
+      <b>₹${item.price}</b>
+    </div>
+  `).join("");
+  document.getElementById("total").textContent = "Total: ₹" + total;
 }
 
 function toggleCart(){
@@ -175,15 +174,17 @@ function toggleCart(){
 
 function sendOrder(){
   if(!cart.length){
-    alert("Please add an item to cart first.");
+    alert("कृपया पहले कार्ट में आइटम जोड़ें।");
     return;
   }
-  let text="Hello Ankit Aggarwal Sweets, I want to order:%0A"+cart.map(p=>`• ${p.name} - ₹${p.price}/${p.unit}`).join("%0A");
-  window.open("https://wa.me/917838186908?text="+text,"_blank");
+  let text = "Namaste Ankit Aggarwal Sweets! Mujhe ye order karna hai:%0A" + 
+    cart.map(i => `• ${i.name} - ₹${i.price}/${i.unit}`).join("%0A") + 
+    "%0A%0A" + document.getElementById("total").textContent;
+  window.open("https://wa.me/917838186908?text=" + text, "_blank");
 }
 
-// Initial display
-renderProducts();
+// Initial Run
+renderList();
 </script>
 </body>
 </html>
