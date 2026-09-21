@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankit Aggarwal Sweets</title>
+<style>
+:root{--maroon:#5b0b16;--deep:#35070d;--gold:#d9a62e;--cream:#fff8ec;--text:#351d18}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,"Times New Roman",serif;background:var(--cream);color:var(--text)}
+header{position:sticky;top:0;z-index:20;background:rgba(53,7,13,.97);color:#fff;padding:13px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold)}
+.brand{text-decoration:none;color:#fff;line-height:.9}.brand small{display:block;text-align:center;color:#f1c95c;font-size:16px}.brand strong{display:block;color:#f4c84e;font-size:30px;letter-spacing:1px}
+nav{display:flex;gap:28px}nav a{color:#fff;text-decoration:none;font-size:15px}nav a:hover{color:#f4c84e}
+.whatsapp{color:#fff;text-decoration:none;font-family:Arial,sans-serif;font-weight:700}.wa-dot{display:inline-flex;background:#25d366;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;margin-right:7px}
+.hero{min-height:500px;display:flex;align-items:center;position:relative;overflow:hidden;background:#21070a;color:#fff}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,3,5,.92) 0%,rgba(25,3,5,.68) 43%,rgba(25,3,5,.15) 100%),url("mithai-reference.png") center/cover no-repeat;filter:saturate(1.08)}
+.hero-content{position:relative;z-index:1;padding:65px 7%;max-width:720px}.eyebrow{color:#f1c95c;font-size:23px;font-style:italic}.hero h1{font-size:62px;line-height:1;margin:14px 0;color:#f4c84e}.hero h1 span{display:block;font-size:25px;color:#fff;font-weight:400;letter-spacing:3px;margin-bottom:9px}.hero p{font-size:19px}.btn{display:inline-block;background:#f4c84e;color:#35100c;text-decoration:none;padding:14px 27px;border-radius:30px;font-weight:700;border:0;cursor:pointer}
+.features{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;padding:24px 6%;gap:10px;text-align:center;border-bottom:1px solid #ead8b5}.feature{padding:8px;border-right:1px solid #ddc8a0}.feature:last-child{border:0}.feature b{display:block;font-size:18px}.feature span{font-family:Arial,sans-serif;font-size:12px;color:#72584c}
+section{padding:55px 5%}.title{text-align:center;margin-bottom:30px}.title small{color:#9d5a27;font-weight:bold;letter-spacing:2px}.title h2{font-size:38px;margin:7px 0;color:var(--maroon)}.title p{font-family:Arial,sans-serif;color:#72584c}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1250px;margin:auto}.card{background:#fff;border:1px solid #eadbc4;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(73,30,10,.08);display:flex;flex-direction:column}.card .pic{height:170px;background:url("mithai-reference.png") center/cover no-repeat}.card:nth-child(1) .pic{background-position:9% 35%}.card:nth-child(2) .pic{background-position:28% 35%}.card:nth-child(3) .pic{background-position:50% 35%}.card:nth-child(4) .pic{background-position:69% 35%}.card:nth-child(5) .pic{background-position:90% 35%}.card:nth-child(6) .pic{background-position:18% 60%}.card:nth-child(7) .pic{background-position:36% 60%}.card:nth-child(8) .pic{background-position:55% 60%}.card:nth-child(9) .pic{background-position:72% 60%}.card:nth-child(10) .pic{background-position:89% 60%}.card:nth-child(11) .pic{background-position:73% 82%}.card:nth-child(12) .pic{background-position:92% 82%}.card:nth-child(13) .pic{background-position:56% 82%}.card h3{margin:13px 12px 3px;text-align:center;font-size:19px}.price{text-align:center;color:#b30f23;font-size:20px;font-weight:700}.unit{font-size:13px;color:#555;font-weight:400}.note{font:11px Arial,sans-serif;text-align:center;color:#777;min-height:15px;padding:2px 8px}.add{margin:10px 12px 14px;background:var(--maroon);color:#fff;border:0;border-radius:22px;padding:11px;cursor:pointer;font-weight:700}.add:hover{background:#820f20}
+.offer{background:linear-gradient(100deg,#fff0d1,#f8d38a);display:flex;align-items:center;justify-content:space-between;gap:25px}.offer h2{font-size:38px;color:var(--maroon);margin:5px 0}.offer p{font-family:Arial,sans-serif}
+.about{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:25px;align-items:center}.about h2{color:var(--maroon)}.about p{font-family:Arial,sans-serif;line-height:1.7}.contact{background:#fff;padding:25px;border-radius:14px}.contact b{color:var(--maroon)}.map{height:220px;border-radius:12px;background:#e8dfd0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Arial,sans-serif;color:#68483d}
+footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;border-top:2px solid var(--gold)}footer .brand{display:inline-block;margin-bottom:15px}.cart{position:fixed;right:22px;bottom:22px;z-index:30;background:#25d366;color:#fff;border:0;border-radius:50px;padding:15px 20px;font-weight:700;box-shadow:0 8px 22px #0004;cursor:pointer}.cart span{background:#fff;color:#168b40;border-radius:50%;padding:2px 7px;margin-left:5px}
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(390px,92vw);background:#fff;z-index:50;box-shadow:-8px 0 30px #0003;transform:translateX(100%);transition:.3s;padding:25px;overflow:auto}.drawer.open{transform:none}.drawer h2{color:var(--maroon)}.item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:12px 0;font-family:Arial,sans-serif}.close{float:right;border:0;background:none;font-size:25px}.checkout{width:100%;padding:13px;background:var(--maroon);color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer}
+@media(max-width:900px){nav{display:none}.hero h1{font-size:45px}.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.offer{display:block}.hero{min-height:560px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card .pic{height:125px}.card h3{font-size:15px}.price{font-size:17px}.hero-content{padding:50px 6%}.hero h1{font-size:37px}.hero h1 span{font-size:19px}.features{font-size:12px}.title h2{font-size:30px}}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="#"><small>Ankit</small><strong>AGGARWAL SWEETS</strong></a>
+<nav><a href="#home">Home</a><a href="#sweets">Our Sweets</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav>
+<a class="whatsapp" href="https://wa.me/917838186908" target="_blank"><span class="wa-dot">☎</span>7838186908</a>
+</header>
+
+<main id="home">
+<section class="hero">
+<div class="hero-content"><div class="eyebrow">Traditional Indian Mithai</div><h1><span>Ankit</span>AGGARWAL SWEETS</h1><p>Pure Taste &nbsp; | &nbsp; Freshly Made &nbsp; | &nbsp; With Love</p><a class="btn" href="#sweets">Order Now →</a></div>
+</section>
+
+<div class="features">
+<div class="feature">🌿<b>100% Pure Ingredients</b><span>No compromise on quality</span></div>
+<div class="feature">♡<b>Freshly Made</b><span>Daily fresh sweets</span></div>
+<div class="feature">🚚<b>Fast & Safe Delivery</b><span>To your doorstep</span></div>
+<div class="feature">✓<b>Secure Payments</b><span>UPI / Cards / Cash</span></div>
+</div>
+
+<section id="sweets"><div class="title"><small>OUR COLLECTION</small><h2>Our Sweets</h2><p>Traditional Indian Mithai, Made with Love</p></div>
+<div class="grid" id="productGrid"></div></section>
+
+<section class="offer"><div><small>Special Offer</small><h2>Celebrate Life with Sweet Moments</h2><p>Premium sweets for festivals, weddings and special celebrations.</p><a class="btn" href="#sweets">View All Sweets</a></div><div style="font-size:70px">🪔🍬</div></section>
+
+<section id="about"><div class="about">
+<div><h2>About Ankit Aggarwal Sweets</h2><p>Authentic taste of traditional Indian mithai made with carefully selected ingredients and love. Choose your favourite sweets and place your order directly on WhatsApp.</p><a class="btn" href="https://wa.me/917838186908?text=Hello%20Ankit%20Aggarwal%20Sweets,%20I%20want%20to%20place%20an%20order." target="_blank">Order on WhatsApp</a></div>
+<div class="contact" id="contact"><h2>Visit Our Shop</h2><p><b>Address</b><br>C-471 Gali No 43<br>Mahaveer Enclave Part 3<br>60 Foot Road<br>New Delhi - 110059</p><p><b>Call / WhatsApp</b><br><a href="tel:7838186908">7838186908</a></p></div>
+<div class="map">📍<br><b>C-471 Gali No 43<br>Mahaveer Enclave Part 3<br>New Delhi 110059</b></div>
+</div></section>
+</main>
+
+<footer><a class="brand" href="#"><small>Ankit</small><strong>AGGARWAL SWEETS</strong></a><p>© 2026 Ankit Aggarwal Sweets. All Rights Reserved.</p></footer>
+
+<button class="cart" onclick="toggleCart()">🛒 Cart <span id="count">0</span></button>
+<aside class="drawer" id="drawer"><button class="close" onclick="toggleCart()">×</button><h2>Your Cart</h2><div id="cartItems">Cart is empty.</div><h3 id="total">Total: ₹0</h3><button class="checkout" onclick="sendOrder()">Order on WhatsApp</button></aside>
+
+<script>
+const products=[
+["Rasgulla",300,"kg",""],["Gulab Jamun",300,"kg",""],["Kaju Katli",900,"kg",""],["Motichoor Laddu",240,"kg",""],["Besan Laddu",240,"kg",""],["Dhoda Barfi",360,"kg",""],["Plain Barfi",400,"kg","Khoya barfi with pista cutting decoration"],["Badam Barfi",450,"kg","Khoya barfi with badam slice decoration"],["Milkcake",360,"kg",""],["Kalakand",400,"kg",""],["Cham Cham White",450,"kg",""],["Cham Cham Black",450,"kg",""],["Rasmalai",35,"piece",""],["Sponge Rasgulla",30,"piece",""]
+];
+let cart=[];
+const grid=document.getElementById("productGrid");
+products.forEach((p,i)=>{grid.insertAdjacentHTML("beforeend",`<article class="card"><div class="pic"></div><h3>${p[0]}</h3><div class="price">₹${p[1]} <span class="unit">/ ${p[2]}</span></div><div class="note">${p[3]}</div><button class="add" onclick="add(${i})">🛒 Add to Cart</button></article>`)});
+function add(i){cart.push(products[i]);document.getElementById("count").textContent=cart.length;renderCart()}
+function renderCart(){const el=document.getElementById("cartItems");if(!cart.length){el.textContent="Cart is empty.";document.getElementById("total").textContent="Total: ₹0";return}let total=cart.reduce((s,p)=>s+p[1],0);el.innerHTML=cart.map(p=>`<div class="item"><span>${p[0]}</span><b>₹${p[1]}</b></div>`).join("");document.getElementById("total").textContent="Total: ₹"+total}
+function toggleCart(){document.getElementById("drawer").classList.toggle("open")}
+function sendOrder(){if(!cart.length){alert("Please add a sweet to cart first.");return}let text="Hello Ankit Aggarwal Sweets, I want to order:%0A"+cart.map(p=>`• ${p[0]} - ₹${p[1]}/${p[2]}`).join("%0A");window.open("https://wa.me/917838186908?text="+text,"_blank")}
+</script>
+</body>
+</html>
