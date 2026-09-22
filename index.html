@@ -44,7 +44,7 @@ header {
   z-index: 20;
   background: rgba(53, 7, 13, 0.98);
   color: #fff;
-  padding: 12px 5%;
+  padding: 10px 4%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -61,53 +61,58 @@ header {
   display: block;
   text-align: center;
   color: #f1c95c;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .brand strong {
   display: block;
   color: #f4c84e;
-  font-size: 30px;
+  font-size: 26px;
   letter-spacing: 1px;
 }
 
-nav {
+.header-actions {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 10px;
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-nav a:hover {
-  color: #f4c84e;
-}
-
-.whatsapp {
-  color: #fff;
-  text-decoration: none;
+.status-badge {
   font-family: Arial, sans-serif;
-  font-weight: 700;
-  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-flex;
   align-items: center;
 }
 
-.wa-dot {
+.status-open {
+  background: #1e7e34;
+  color: #fff;
+}
+
+.status-closed {
+  background: #bd2130;
+  color: #fff;
+}
+
+.call-btn {
+  background: #f4c84e;
+  color: var(--deep);
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
   display: inline-flex;
-  background: #25d366;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
   align-items: center;
-  justify-content: center;
-  margin-right: 7px;
+  gap: 4px;
 }
 
 .hero {
-  min-height: 460px;
+  min-height: 420px;
   display: flex;
   align-items: center;
   position: relative;
@@ -127,34 +132,34 @@ nav a:hover {
 .hero-content {
   position: relative;
   z-index: 1;
-  padding: 60px 7%;
+  padding: 50px 7%;
   max-width: 720px;
 }
 
 .eyebrow {
   color: #f1c95c;
-  font-size: 23px;
+  font-size: 22px;
   font-style: italic;
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: 50px;
   line-height: 1;
-  margin: 14px 0;
+  margin: 12px 0;
   color: #f4c84e;
 }
 
 .hero h1 span {
   display: block;
-  font-size: 24px;
+  font-size: 22px;
   color: #fff;
   font-weight: 400;
   letter-spacing: 3px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .btn {
@@ -162,7 +167,7 @@ nav a:hover {
   background: #f4c84e;
   color: #35100c;
   text-decoration: none;
-  padding: 13px 26px;
+  padding: 12px 24px;
   border-radius: 30px;
   font-weight: 700;
   border: 0;
@@ -173,14 +178,14 @@ nav a:hover {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background: #fff;
-  padding: 22px 6%;
+  padding: 18px 5%;
   gap: 10px;
   text-align: center;
   border-bottom: 1px solid #ead8b5;
 }
 
 .feature {
-  padding: 8px;
+  padding: 6px;
   border-right: 1px solid #ddc8a0;
 }
 
@@ -190,7 +195,7 @@ nav a:hover {
 
 .feature b {
   display: block;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .feature span {
@@ -272,8 +277,8 @@ section {
 }
 
 .title h2 {
-  font-size: 36px;
-  margin: 7px 0;
+  font-size: 34px;
+  margin: 6px 0;
   color: var(--maroon);
 }
 
@@ -379,24 +384,6 @@ section {
   background: #820f20;
 }
 
-.offer {
-  background: linear-gradient(100deg, #fff0d1, #f8d38a);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-
-.offer h2 {
-  font-size: 36px;
-  color: var(--maroon);
-  margin: 5px 0;
-}
-
-.offer p {
-  font-family: Arial, sans-serif;
-}
-
 .about {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
@@ -423,16 +410,29 @@ section {
   color: var(--maroon);
 }
 
-.map {
+.map-card {
   height: 220px;
   border-radius: 12px;
-  background: #e8dfd0;
+  background: #efe7db;
+  border: 1px solid #e0d0b8;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 15px;
+  gap: 10px;
+}
+
+.map-link-btn {
+  background: var(--maroon);
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
   font-family: Arial, sans-serif;
-  color: #68483d;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 footer {
@@ -478,13 +478,13 @@ footer .brand {
   right: 0;
   top: 0;
   height: 100%;
-  width: min(390px, 92vw);
+  width: min(400px, 94vw);
   background: #fff;
   z-index: 50;
   box-shadow: -8px 0 30px #0003;
   transform: translateX(100%);
   transition: 0.3s;
-  padding: 25px;
+  padding: 22px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -497,6 +497,17 @@ footer .brand {
 .drawer h2 {
   color: var(--maroon);
   margin-top: 0;
+}
+
+.free-deliv-box {
+  background: #fff3cd;
+  color: #856404;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  margin-bottom: 12px;
+  font-weight: bold;
 }
 
 .item {
@@ -536,6 +547,24 @@ footer .brand {
   border-color: var(--maroon);
 }
 
+/* UPI Payment Section */
+.upi-section {
+  margin-top: 15px;
+  border: 1px dashed #d9a62e;
+  background: #fffdf7;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.upi-section summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--maroon);
+  font-size: 14px;
+}
+
 .checkout {
   width: 100%;
   padding: 13px;
@@ -545,7 +574,7 @@ footer .brand {
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 18px;
+  margin-top: 15px;
   font-family: Arial, sans-serif;
   font-size: 15px;
   transition: 0.2s;
@@ -556,11 +585,8 @@ footer .brand {
 }
 
 @media(max-width: 900px) {
-  nav {
-    display: none;
-  }
   .hero h1 {
-    font-size: 42px;
+    font-size: 40px;
   }
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -571,15 +597,15 @@ footer .brand {
   .about {
     grid-template-columns: 1fr;
   }
-  .offer {
-    display: block;
-  }
-  .hero {
-    min-height: 480px;
-  }
 }
 
 @media(max-width: 520px) {
+  header {
+    padding: 10px 3%;
+  }
+  .brand strong {
+    font-size: 20px;
+  }
   .grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -594,19 +620,10 @@ footer .brand {
     font-size: 16px;
   }
   .hero-content {
-    padding: 45px 6%;
+    padding: 35px 5%;
   }
   .hero h1 {
-    font-size: 34px;
-  }
-  .hero h1 span {
-    font-size: 18px;
-  }
-  .features {
-    font-size: 12px;
-  }
-  .title h2 {
-    font-size: 28px;
+    font-size: 32px;
   }
 }
 </style>
@@ -615,15 +632,11 @@ footer .brand {
 
 <header>
   <a class="brand" href="#"><small>Ankit</small><strong>AGGARWAL SWEETS</strong></a>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#menu">Our Menu</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="whatsapp" href="https://wa.me/917838186908" target="_blank">
-    <span class="wa-dot">☎</span>7838186908
-  </a>
+  
+  <div class="header-actions">
+    <span id="shopStatus" class="status-badge status-open">● Open</span>
+    <a class="call-btn" href="tel:7838186908">📞 Call</a>
+  </div>
 </header>
 
 <main id="home">
@@ -678,16 +691,6 @@ footer .brand {
     <div class="grid" id="productGrid"></div>
   </section>
 
-  <section class="offer">
-    <div>
-      <small>Special Occasions</small>
-      <h2>Celebrate Life with Sweet Moments</h2>
-      <p>Special bulk bookings available for festivals, weddings, and parties.</p>
-      <a class="btn" href="#menu">View All Items</a>
-    </div>
-    <div style="font-size:70px">🪔🍬</div>
-  </section>
-
   <section id="about">
     <div class="about">
       <div>
@@ -700,9 +703,10 @@ footer .brand {
         <p><b>Address</b><br>C-471 Gali No 43<br>Mahaveer Enclave Part 3<br>60 Foot Road<br>New Delhi - 110059</p>
         <p><b>Call / WhatsApp</b><br><a href="tel:7838186908">7838186908</a></p>
       </div>
-      <div class="map">
-        📍<br>
-        <b>C-471 Gali No 43<br>Mahaveer Enclave Part 3<br>New Delhi 110059</b>
+      <div class="map-card">
+        📍 <b>Shop Location</b>
+        <p style="font-size:13px;color:#555;margin:0;">Mahaveer Enclave Part 3, New Delhi - 110059</p>
+        <a class="map-link-btn" href="https://maps.google.com/?q=Mahaveer+Enclave+Part+3+New+Delhi+110059" target="_blank">🗺 Open in Google Maps</a>
       </div>
     </div>
   </section>
@@ -715,20 +719,36 @@ footer .brand {
 
 <button class="cart" onclick="toggleCart()">🛒 Cart <span id="count">0</span></button>
 
-<!-- Drawer with Customer Name & Address Inputs -->
+<!-- Drawer with Customer Name, Address & Verified UPI -->
 <aside class="drawer" id="drawer">
   <button class="close" onclick="toggleCart()">×</button>
   <h2>Your Cart</h2>
+  
+  <div id="freeDelivNotice" class="free-deliv-box">
+    Add items worth ₹200 for Free Delivery!
+  </div>
+
   <div id="cartItems">Cart is empty.</div>
   <h3 id="total" style="color:var(--maroon);margin:15px 0 10px">Total: ₹0</h3>
   
-  <div style="margin-top:15px;border-top:1px solid #eee;padding-top:15px">
+  <div style="margin-top:10px;border-top:1px solid #eee;padding-top:10px">
     <label style="font-family:Arial,sans-serif;font-weight:bold;font-size:13px;color:var(--deep)">Your Name *</label>
     <input type="text" id="custName" class="cust-input" placeholder="e.g. Rahul Sharma">
     
-    <label style="font-family:Arial,sans-serif;font-weight:bold;font-size:13px;color:var(--deep);display:block;margin-top:12px">Delivery Address *</label>
-    <textarea id="custAddress" class="cust-input" rows="3" placeholder="House no, Street, Landmark, Area..."></textarea>
+    <label style="font-family:Arial,sans-serif;font-weight:bold;font-size:13px;color:var(--deep);display:block;margin-top:10px">Delivery Address *</label>
+    <textarea id="custAddress" class="cust-input" rows="2" placeholder="House no, Street, Landmark, Area..."></textarea>
   </div>
+
+  <!-- Real UPI QR Code Section -->
+  <details class="upi-section">
+    <summary>💳 Pay via UPI / QR Code</summary>
+    <div style="margin-top:10px">
+      <p style="font-size:12px;margin:5px 0;color:#444">Scan to pay using GPay / PhonePe / Paytm:</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=7838186908@pthdfc%26pn=Ankit%20Aggarwal%20Sweets" alt="UPI QR Code" style="width:140px;height:140px;border-radius:8px;border:1px solid #ddd;margin:5px 0">
+      <p style="font-size:13px;font-weight:bold;color:var(--maroon);margin:3px 0">UPI ID: 7838186908@pthdfc</p>
+      <small style="font-size:11px;color:#777">Payment ka screenshot WhatsApp par zaroor bhejein.</small>
+    </div>
+  </details>
 
   <button class="checkout" onclick="sendOrder()">Order on WhatsApp</button>
 </aside>
@@ -799,6 +819,23 @@ let cart = [];
 let currentTab = 'all';
 let searchQuery = '';
 const grid = document.getElementById("productGrid");
+
+// Shop Open/Close timing check (8:00 AM to 10:30 PM)
+function updateShopStatus() {
+  const now = new Date();
+  const hour = now.getHours();
+  const min = now.getMinutes();
+  const time = hour + min / 60;
+  const statusEl = document.getElementById("shopStatus");
+
+  if (time >= 8 && time <= 22.5) {
+    statusEl.textContent = "● Open Now";
+    statusEl.className = "status-badge status-open";
+  } else {
+    statusEl.textContent = "● Closed Now";
+    statusEl.className = "status-badge status-closed";
+  }
+}
 
 function getQtyOptions(unit) {
   if (unit === 'kg') {
@@ -913,15 +950,31 @@ function add(i) {
 
 function renderCart() {
   const el = document.getElementById("cartItems");
+  const noticeEl = document.getElementById("freeDelivNotice");
+
   if (!cart.length) {
     el.textContent = "Cart is empty.";
     document.getElementById("total").textContent = "Total: ₹0";
     document.getElementById("count").textContent = "0";
+    noticeEl.textContent = "Add items worth ₹200 for Free Delivery!";
+    noticeEl.style.background = "#fff3cd";
+    noticeEl.style.color = "#856404";
     return;
   }
   
   let total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.cost), 0);
   let hasMrpItems = cart.some(p => p.isMrp);
+
+  // Free delivery threshold check (₹200)
+  if (total >= 200) {
+    noticeEl.textContent = "🎉 Congratulations! You qualify for FREE Delivery!";
+    noticeEl.style.background = "#d4edda";
+    noticeEl.style.color = "#155724";
+  } else {
+    noticeEl.textContent = `🚚 Add items worth ₹${200 - total} more for Free Delivery!`;
+    noticeEl.style.background = "#fff3cd";
+    noticeEl.style.color = "#856404";
+  }
 
   el.innerHTML = cart.map((p, index) => `
     <div class="item">
@@ -989,6 +1042,7 @@ Please confirm my order.`;
   window.open(url, "_blank");
 }
 
+updateShopStatus();
 renderMenu();
 </script>
 </body>
