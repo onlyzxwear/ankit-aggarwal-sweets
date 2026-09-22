@@ -845,8 +845,30 @@ function renderCart() {
   if (!cart.length) {
     el.textContent = "Cart is empty.";
     document.getElementById("total").textContent = "Total: ₹0";
+    document.getElementById("count").textContent = "0";
     return;
   }
+  
+  let total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.price), 0);
+  let hasMrpItems = cart.some(p => p.isMrp);
+
+  el.innerHTML = cart.map((p, index) => `
+    <div class="item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid #eee;">
+      <span style="flex:1;">${p.name}</span>
+      <b>${p.isMrp ? '<span style="color:#b30f23">On MRP</span>' : '₹' + p.price}</b>
+      <button onclick="removeFromCart(${index})" title="Remove item" style="background:#ff4d4d;color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;font-weight:bold;line-height:22px;padding:0;display:inline-flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+  `).join("");
+
+  document.getElementById("total").innerHTML = "Total: ₹" + total + (hasMrpItems ? ' <small style="font-size:12px;color:#666">(+ Bikano items on MRP)</small>' : '');
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  document.getElementById("count").textContent = cart.length;
+  renderCart();
+}
+  
   
   let total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.price), 0);
   let hasMrpItems = cart.some(p => p.isMrp);
