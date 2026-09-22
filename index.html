@@ -350,13 +350,25 @@ section {
   padding: 2px 8px;
 }
 
+.qty-select {
+  margin: 8px 12px 0;
+  padding: 7px;
+  border: 1px solid #d5bf9f;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: var(--deep);
+  outline: none;
+}
+
 .add {
-  margin: 10px 12px 14px;
+  margin: 8px 12px 14px;
   background: var(--maroon);
   color: #fff;
   border: 0;
   border-radius: 22px;
-  padding: 11px;
+  padding: 10px;
   cursor: pointer;
   font-weight: 700;
   font-family: Arial, sans-serif;
@@ -460,7 +472,7 @@ footer .brand {
   margin-left: 5px;
 }
 
-/* Cart Drawer & Form Inputs */
+/* Cart Drawer */
 .drawer {
   position: fixed;
   right: 0;
@@ -489,11 +501,12 @@ footer .brand {
 
 .item {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #eee;
   padding: 10px 0;
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .close {
@@ -766,26 +779,61 @@ const products = [
   {name:"Rasmalai", price:35, unit:"piece", displayPrice:"₹35", note:"Chilled kesar rabdi rasmalai", cat:"sweets", file:"Rasmalai.png"},
 
   // ================= 3. BIKANO SPECIAL (ON MRP) =================
-  {name:"Bikano Peanuts", price:0, isMrp:true, displayPrice:"ON MRP", note:"Crispy salted peanuts | On MRP", cat:"bikano", file:"Bikano peanuts.jpg"},
-  {name:"Bikano Tasty", price:0, isMrp:true, displayPrice:"ON MRP", note:"Spicy coated besan peanut | On MRP", cat:"bikano", file:"Bikano Tasty.jpg"},
-  {name:"Bikano Moong Daal", price:0, isMrp:true, displayPrice:"ON MRP", note:"Crunchy salted fried dal | On MRP", cat:"bikano", file:"moongdaal.png"},
-  {name:"Bikano Bhujia", price:0, isMrp:true, displayPrice:"ON MRP", note:"Classic crispy bikaneri bhujia | On MRP", cat:"bikano", file:"Bhujia.png"},
-  {name:"Bikano Aloo Bhujia", price:0, isMrp:true, displayPrice:"ON MRP", note:"Spiced mint potato bhujia | On MRP", cat:"bikano", file:"Aloo Bhujia.png"},
-  {name:"Bikano Panjabi Tadka", price:0, isMrp:true, displayPrice:"ON MRP", note:"Tangy spicy crunchy namkeen | On MRP", cat:"bikano", file:"Panjabi Tadka.png"},
-  {name:"Bikano Ganthiya", price:0, isMrp:true, displayPrice:"ON MRP", note:"Soft savory carom ganthiya | On MRP", cat:"bikano", file:"Ganthiya.png"},
-  {name:"Bikano Kaju Mixture", price:0, isMrp:true, displayPrice:"ON MRP", note:"Rich premium cashew namkeen | On MRP", cat:"bikano", file:"Kaju Mixture.png"},
-  {name:"Bikano Raj Bhog", price:0, isMrp:true, displayPrice:"ON MRP", note:"Kesar dry fruit stuffed rasgulla | On MRP", cat:"bikano", file:"Raj Bhog.png"},
-  {name:"Bikano Dry Petha", price:0, isMrp:true, displayPrice:"ON MRP", note:"Traditional agra sweet petha | On MRP", cat:"bikano", file:"Dry Petha.png"},
-  {name:"Bikano Desi Ghee Soan Papdi", price:0, isMrp:true, displayPrice:"ON MRP", note:"Pure 100% desi ghee mithai | On MRP", cat:"bikano", file:"Desi ghee SoanPapdi.png"},
-  {name:"Bikano Soan Papdi", price:0, isMrp:true, displayPrice:"ON MRP", note:"Flaky layered sweet delicacy | On MRP", cat:"bikano", file:"Soan Papdi.png"},
-  {name:"Bikano Gulab Jamun Tin", price:0, isMrp:true, displayPrice:"ON MRP", note:"Soft spongy sweet jamun | On MRP", cat:"bikano", file:"Gulab Jamun.png"},
-  {name:"Bikano Rasogolla Tin", price:0, isMrp:true, displayPrice:"ON MRP", note:"Juicy soft tinned rasgulla | On MRP", cat:"bikano", file:"Rasogolla.png"}
+  {name:"Bikano Peanuts", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Crispy salted peanuts | On MRP", cat:"bikano", file:"Bikano peanuts.jpg"},
+  {name:"Bikano Tasty", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Spicy coated besan peanut | On MRP", cat:"bikano", file:"Bikano Tasty.jpg"},
+  {name:"Bikano Moong Daal", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Crunchy salted fried dal | On MRP", cat:"bikano", file:"moongdaal.png"},
+  {name:"Bikano Bhujia", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Classic crispy bikaneri bhujia | On MRP", cat:"bikano", file:"Bhujia.png"},
+  {name:"Bikano Aloo Bhujia", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Spiced mint potato bhujia | On MRP", cat:"bikano", file:"Aloo Bhujia.png"},
+  {name:"Bikano Panjabi Tadka", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Tangy spicy crunchy namkeen | On MRP", cat:"bikano", file:"Panjabi Tadka.png"},
+  {name:"Bikano Ganthiya", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Soft savory carom ganthiya | On MRP", cat:"bikano", file:"Ganthiya.png"},
+  {name:"Bikano Kaju Mixture", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Rich premium cashew namkeen | On MRP", cat:"bikano", file:"Kaju Mixture.png"},
+  {name:"Bikano Raj Bhog", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Kesar dry fruit stuffed rasgulla | On MRP", cat:"bikano", file:"Raj Bhog.png"},
+  {name:"Bikano Dry Petha", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Traditional agra sweet petha | On MRP", cat:"bikano", file:"Dry Petha.png"},
+  {name:"Bikano Desi Ghee Soan Papdi", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Pure 100% desi ghee mithai | On MRP", cat:"bikano", file:"Desi ghee SoanPapdi.png"},
+  {name:"Bikano Soan Papdi", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Flaky layered sweet delicacy | On MRP", cat:"bikano", file:"Soan Papdi.png"},
+  {name:"Bikano Gulab Jamun Tin", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Soft spongy sweet jamun | On MRP", cat:"bikano", file:"Gulab Jamun.png"},
+  {name:"Bikano Rasogolla Tin", price:0, unit:"pack", isMrp:true, displayPrice:"ON MRP", note:"Juicy soft tinned rasgulla | On MRP", cat:"bikano", file:"Rasogolla.png"}
 ];
 
 let cart = [];
 let currentTab = 'all';
 let searchQuery = '';
 const grid = document.getElementById("productGrid");
+
+function getQtyOptions(unit) {
+  if (unit === 'kg') {
+    return `
+      <option value="0.25|250 gm">250 gm</option>
+      <option value="0.5|500 gm (1/2 kg)">500 gm (1/2 kg)</option>
+      <option value="1|1 kg" selected>1 kg</option>
+      <option value="1.5|1.5 kg">1.5 kg</option>
+      <option value="2|2 kg">2 kg</option>
+      <option value="5|5 kg">5 kg</option>
+    `;
+  } else if (unit === 'piece') {
+    return `
+      <option value="1|1 Piece" selected>1 Piece</option>
+      <option value="2|2 Piece">2 Piece</option>
+      <option value="4|4 Piece">4 Piece</option>
+      <option value="5|5 Piece">5 Piece</option>
+      <option value="10|10 Piece">10 Piece</option>
+    `;
+  } else if (unit === 'full') {
+    return `
+      <option value="1|1 Plate" selected>1 Plate</option>
+      <option value="2|2 Plate">2 Plate</option>
+      <option value="3|3 Plate">3 Plate</option>
+      <option value="5|5 Plate">5 Plate</option>
+    `;
+  } else {
+    return `
+      <option value="1|1 Pack" selected>1 Pack</option>
+      <option value="2|2 Pack">2 Pack</option>
+      <option value="3|3 Pack">3 Pack</option>
+      <option value="5|5 Pack">5 Pack</option>
+    `;
+  }
+}
 
 function renderMenu() {
   grid.innerHTML = "";
@@ -796,7 +844,7 @@ function renderMenu() {
     return matchesTab && matchesSearch;
   });
 
-  if(!filtered.length) {
+  if (!filtered.length) {
     grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:#777;font-size:16px;font-family:Arial,sans-serif">Koi item nahi mila! 🔍</div>`;
     return;
   }
@@ -817,6 +865,9 @@ function renderMenu() {
         <h3>${p.name}</h3>
         <div class="price ${p.isMrp ? 'on-mrp' : ''}">${priceText}</div>
         <div class="note">${p.note}</div>
+        <select class="qty-select" id="qty_${originalIdx}">
+          ${getQtyOptions(p.unit)}
+        </select>
         <button class="add" onclick="add(${originalIdx})">🛒 Add to Cart</button>
       </article>
     `);
@@ -836,7 +887,26 @@ function handleSearch() {
 }
 
 function add(i) {
-  cart.push(products[i]);
+  const selectEl = document.getElementById("qty_" + i);
+  let multiplier = 1;
+  let label = products[i].unit;
+
+  if (selectEl) {
+    const parts = selectEl.value.split("|");
+    multiplier = parseFloat(parts[0]);
+    label = parts[1];
+  }
+
+  const p = products[i];
+  const itemCost = p.isMrp ? 0 : Math.round(p.price * multiplier);
+
+  cart.push({
+    name: p.name,
+    isMrp: p.isMrp,
+    qtyLabel: label,
+    cost: itemCost
+  });
+
   document.getElementById("count").textContent = cart.length;
   renderCart();
 }
@@ -850,13 +920,16 @@ function renderCart() {
     return;
   }
   
-  let total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.price), 0);
+  let total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.cost), 0);
   let hasMrpItems = cart.some(p => p.isMrp);
 
   el.innerHTML = cart.map((p, index) => `
-    <div class="item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid #eee;">
-      <span style="flex:1;">${p.name}</span>
-      <b>${p.isMrp ? '<span style="color:#b30f23">On MRP</span>' : '₹' + p.price}</b>
+    <div class="item">
+      <div style="flex:1;">
+        <b>${p.name}</b><br>
+        <small style="color:#666">${p.qtyLabel}</small>
+      </div>
+      <b style="margin:0 10px;">${p.isMrp ? '<span style="color:#b30f23">On MRP</span>' : '₹' + p.cost}</b>
       <button onclick="removeFromCart(${index})" title="Remove item" style="background:#ff4d4d;color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:12px;font-weight:bold;line-height:22px;padding:0;display:inline-flex;align-items:center;justify-content:center;">✕</button>
     </div>
   `).join("");
@@ -894,7 +967,7 @@ function sendOrder() {
     return;
   }
 
-  const itemsText = cart.map(p => p.isMrp ? `• ${p.name} - (On MRP)` : `• ${p.name} - ₹${p.price}/${p.unit}`).join("\n");
+  const itemsText = cart.map(p => p.isMrp ? `• ${p.name} (${p.qtyLabel}) - (On MRP)` : `• ${p.name} (${p.qtyLabel}) - ₹${p.cost}`).join("\n");
   const totalText = document.getElementById("total").innerText;
 
   const orderMessage = 
@@ -919,4 +992,4 @@ Please confirm my order.`;
 renderMenu();
 </script>
 </body>
-</html>    
+</html>
