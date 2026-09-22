@@ -48,7 +48,13 @@ section{padding:35px 5%}.title{text-align:center;margin-bottom:25px}.title small
 .about{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:25px;align-items:center}.about h2{color:var(--maroon)}.about p{font-family:Arial,sans-serif;line-height:1.7}.contact{background:#fff;padding:25px;border-radius:14px}.contact b{color:var(--maroon)}.map{height:220px;border-radius:12px;background:#e8dfd0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Arial,sans-serif;color:#68483d}
 footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;border-top:2px solid var(--gold)}footer .brand{display:inline-block;margin-bottom:15px}
 .cart{position:fixed;right:22px;bottom:22px;z-index:30;background:#25d366;color:#fff;border:0;border-radius:50px;padding:14px 22px;font-weight:700;box-shadow:0 8px 22px #0004;cursor:pointer;font-family:Arial,sans-serif}.cart span{background:#fff;color:#168b40;border-radius:50%;padding:2px 8px;margin-left:5px}
-.drawer{position:fixed;right:0;top:0;height:100%;width:min(390px,92vw);background:#fff;z-index:50;box-shadow:-8px 0 30px #0003;transform:translateX(100%);transition:.3s;padding:25px;overflow:auto}.drawer.open{transform:none}.drawer h2{color:var(--maroon)}.item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:12px 0;font-family:Arial,sans-serif}.close{float:right;border:0;background:none;font-size:25px;cursor:pointer}.checkout{width:100%;padding:13px;background:var(--maroon);color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer;margin-top:15px;font-family:Arial,sans-serif}
+
+/* Cart Drawer & Form Inputs */
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(390px,92vw);background:#fff;z-index:50;box-shadow:-8px 0 30px #0003;transform:translateX(100%);transition:.3s;padding:25px;overflow-y:auto;display:flex;flex-direction:column}.drawer.open{transform:none}.drawer h2{color:var(--maroon);margin-top:0}.item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:10px 0;font-family:Arial,sans-serif;font-size:14px}.close{position:absolute;top:15px;right:20px;border:0;background:none;font-size:28px;cursor:pointer;color:#444}
+.cust-input{width:100%;padding:10px;margin-top:6px;border:1px solid #d5bf9f;border-radius:6px;font-family:Arial,sans-serif;font-size:14px;box-sizing:border-box}
+.cust-input:focus{outline:none;border-color:var(--maroon)}
+.checkout{width:100%;padding:13px;background:var(--maroon);color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer;margin-top:18px;font-family:Arial,sans-serif;font-size:15px;transition:.2s}
+.checkout:hover{background:#820f20}
 
 @media(max-width:900px){nav{display:none}.hero h1{font-size:42px}.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.offer{display:block}.hero{min-height:480px}}
 @media(max-width:520px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card .pic{height:125px}.card h3{font-size:15px}.price{font-size:16px}.hero-content{padding:45px 6%}.hero h1{font-size:34px}.hero h1 span{font-size:18px}.features{font-size:12px}.title h2{font-size:28px}}
@@ -107,11 +113,22 @@ footer{background:var(--deep);color:#fff;text-align:center;padding:28px 5%;borde
 <footer><a class="brand" href="#"><small>Ankit</small><strong>AGGARWAL SWEETS</strong></a><p>© 2026 Ankit Aggarwal Sweets. All Rights Reserved.</p></footer>
 
 <button class="cart" onclick="toggleCart()">🛒 Cart <span id="count">0</span></button>
+
+<!-- Drawer with Customer Name & Address Inputs -->
 <aside class="drawer" id="drawer">
   <button class="close" onclick="toggleCart()">×</button>
   <h2>Your Cart</h2>
   <div id="cartItems">Cart is empty.</div>
-  <h3 id="total" style="color:var(--maroon);margin-top:15px">Total: ₹0</h3>
+  <h3 id="total" style="color:var(--maroon);margin:15px 0 10px">Total: ₹0</h3>
+  
+  <div style="margin-top:15px;border-top:1px solid #eee;padding-top:15px">
+    <label style="font-family:Arial,sans-serif;font-weight:bold;font-size:13px;color:var(--deep)">Your Name *</label>
+    <input type="text" id="custName" class="cust-input" placeholder="e.g. Rahul Sharma">
+    
+    <label style="font-family:Arial,sans-serif;font-weight:bold;font-size:13px;color:var(--deep);display:block;margin-top:12px">Delivery Address *</label>
+    <textarea id="custAddress" class="cust-input" rows="3" placeholder="House no, Street, Landmark, Area..."></textarea>
+  </div>
+
   <button class="checkout" onclick="sendOrder()">Order on WhatsApp</button>
 </aside>
 
@@ -218,10 +235,39 @@ function sendOrder(){
     alert("Please add items to your cart first.");
     return;
   }
-  let text = "Hello Ankit Aggarwal Sweets, I want to order:%0A" + 
-    cart.map(p => `• ${p.name} - ₹${p.price}/${p.unit}`).join("%0A") + 
-    "%0A%0A" + document.getElementById("total").textContent;
-  window.open("https://wa.me/917838186908?text=" + text, "_blank");
+
+  const name = document.getElementById("custName").value.trim();
+  const address = document.getElementById("custAddress").value.trim();
+
+  if(!name){
+    alert("Kripya apna Naam bhariye.");
+    document.getElementById("custName").focus();
+    return;
+  }
+  if(!address){
+    alert("Kripya apna Delivery Address bhariye.");
+    document.getElementById("custAddress").focus();
+    return;
+  }
+
+  const itemsText = cart.map(p => `• ${p.name} - ₹${p.price}/${p.unit}`).join("\n");
+  const totalText = document.getElementById("total").textContent;
+
+  const orderMessage = 
+`*New Order - Ankit Aggarwal Sweets*
+--------------------------------
+*Customer Name:* ${name}
+*Delivery Address:* ${address}
+--------------------------------
+*Items:*
+${itemsText}
+
+*${totalText}*
+--------------------------------
+Please confirm my order.`;
+
+  const url = `https://wa.me/917838186908?text=${encodeURIComponent(orderMessage)}`;
+  window.open(url, "_blank");
 }
 
 renderMenu();
