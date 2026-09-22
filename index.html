@@ -433,6 +433,11 @@ section {
   font-family: Arial, sans-serif;
   font-size: 13px;
   font-weight: bold;
+  transition: 0.2s;
+}
+
+.map-link-btn:hover {
+  background: #820f20;
 }
 
 footer {
@@ -563,6 +568,19 @@ footer .brand {
   font-weight: bold;
   color: var(--maroon);
   font-size: 14px;
+}
+
+.direct-pay-btn {
+  display: block;
+  background: #1a73e8;
+  color: #fff;
+  text-decoration: none;
+  padding: 11px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(26,115,232,0.3);
 }
 
 .checkout {
@@ -706,7 +724,8 @@ footer .brand {
       <div class="map-card">
         📍 <b>Shop Location</b>
         <p style="font-size:13px;color:#555;margin:0;">Mahaveer Enclave Part 3, New Delhi - 110059</p>
-        <a class="map-link-btn" href="https://maps.google.com/?q=Mahaveer+Enclave+Part+3+New+Delhi+110059" target="_blank">🗺 Open in Google Maps</a>
+        <!-- Updated Exact Google Maps Link -->
+        <a class="map-link-btn" href="https://maps.app.goo.gl/GpsqZC5WEDhaPcdh9" target="_blank">🗺 Open in Google Maps</a>
       </div>
     </div>
   </section>
@@ -719,7 +738,7 @@ footer .brand {
 
 <button class="cart" onclick="toggleCart()">🛒 Cart <span id="count">0</span></button>
 
-<!-- Drawer with Customer Name, Address & Verified UPI -->
+<!-- Drawer with Customer Name, Address & Smart In-App UPI Payment -->
 <aside class="drawer" id="drawer">
   <button class="close" onclick="toggleCart()">×</button>
   <h2>Your Cart</h2>
@@ -739,14 +758,17 @@ footer .brand {
     <textarea id="custAddress" class="cust-input" rows="2" placeholder="House no, Street, Landmark, Area..."></textarea>
   </div>
 
-  <!-- Real UPI QR Code Section -->
+  <!-- Real UPI In-App Payment & QR Code Section -->
   <details class="upi-section">
-    <summary>💳 Pay via UPI / QR Code</summary>
+    <summary>💳 Pay Online (GPay / PhonePe / Paytm)</summary>
     <div style="margin-top:10px">
-      <p style="font-size:12px;margin:5px 0;color:#444">Scan to pay using GPay / PhonePe / Paytm:</p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=7838186908@pthdfc%26pn=Ankit%20Aggarwal%20Sweets" alt="UPI QR Code" style="width:140px;height:140px;border-radius:8px;border:1px solid #ddd;margin:5px 0">
+      <!-- One-Click In-App Payment Button for Mobile -->
+      <a id="directUpiBtn" class="direct-pay-btn" href="#">⚡ Pay Directly via UPI App</a>
+      
+      <p style="font-size:12px;margin:5px 0;color:#444">Ya Scanner se scan karein:</p>
+      <img id="upiQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=7838186908@pthdfc%26pn=Ankit%20Aggarwal%20Sweets" alt="UPI QR Code" style="width:140px;height:140px;border-radius:8px;border:1px solid #ddd;margin:5px 0">
       <p style="font-size:13px;font-weight:bold;color:var(--maroon);margin:3px 0">UPI ID: 7838186908@pthdfc</p>
-      <small style="font-size:11px;color:#777">Payment ka screenshot WhatsApp par zaroor bhejein.</small>
+      <small style="font-size:11px;color:#777">Payment hone ke baad WhatsApp par order confirm karein.</small>
     </div>
   </details>
 
@@ -959,6 +981,10 @@ function renderCart() {
     noticeEl.textContent = "Add items worth ₹200 for Free Delivery!";
     noticeEl.style.background = "#fff3cd";
     noticeEl.style.color = "#856404";
+    
+    // Reset UPI Link
+    const directUpiBtn = document.getElementById("directUpiBtn");
+    if (directUpiBtn) directUpiBtn.href = "#";
     return;
   }
   
@@ -975,6 +1001,13 @@ function renderCart() {
     noticeEl.style.background = "#fff3cd";
     noticeEl.style.color = "#856404";
   }
+
+  // Dynamic In-App UPI Payment Link & QR Code Update with Total Amount
+  const upiUrl = `upi://pay?pa=7838186908@pthdfc&pn=Ankit%20Aggarwal%20Sweets&am=${total}&cu=INR`;
+  const upiBtn = document.getElementById("directUpiBtn");
+  const upiImg = document.getElementById("upiQrImg");
+  if (upiBtn) upiBtn.href = upiUrl;
+  if (upiImg) upiImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(upiUrl)}`;
 
   el.innerHTML = cart.map((p, index) => `
     <div class="item">
