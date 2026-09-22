@@ -719,6 +719,7 @@ footer .brand {
 
   <button class="checkout" onclick="sendOrder()">Order on WhatsApp</button>
 </aside>
+
 <script>
 const products = [
   // ================= 1. SNACKS & NAMKEEN =================
@@ -868,20 +869,6 @@ function removeFromCart(index) {
   document.getElementById("count").textContent = cart.length;
   renderCart();
 }
-  
-  
-  let total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.price), 0);
-  let hasMrpItems = cart.some(p => p.isMrp);
-
-  el.innerHTML = cart.map(p => `
-    <div class="item">
-      <span>${p.name}</span>
-      <b>${p.isMrp ? '<span style="color:#b30f23">On MRP</span>' : '₹' + p.price}</b>
-    </div>
-  `).join("");
-
-  document.getElementById("total").innerHTML = "Total: ₹" + total + (hasMrpItems ? ' <small style="font-size:12px;color:#666">(+ Bikano items on MRP)</small>' : '');
-}
 
 function toggleCart() {
   document.getElementById("drawer").classList.toggle("open");
@@ -932,4 +919,4 @@ Please confirm my order.`;
 renderMenu();
 </script>
 </body>
-</html>
+</html>    
