@@ -724,7 +724,6 @@ footer .brand {
       <div class="map-card">
         📍 <b>Shop Location</b>
         <p style="font-size:13px;color:#555;margin:0;">Mahaveer Enclave Part 3, New Delhi - 110059</p>
-        <!-- Updated Exact Google Maps Link -->
         <a class="map-link-btn" href="https://maps.app.goo.gl/GpsqZC5WEDhaPcdh9" target="_blank">🗺 Open in Google Maps</a>
       </div>
     </div>
@@ -744,7 +743,7 @@ footer .brand {
   <h2>Your Cart</h2>
   
   <div id="freeDelivNotice" class="free-deliv-box">
-    Add items worth ₹200 for Free Delivery!
+    Minimum order amount is ₹500 (Free Delivery on ₹500+)!
   </div>
 
   <div id="cartItems">Cart is empty.</div>
@@ -978,7 +977,7 @@ function renderCart() {
     el.textContent = "Cart is empty.";
     document.getElementById("total").textContent = "Total: ₹0";
     document.getElementById("count").textContent = "0";
-    noticeEl.textContent = "Add items worth ₹200 for Free Delivery!";
+    noticeEl.textContent = "Minimum order amount is ₹500 (Free Delivery on ₹500+)!";
     noticeEl.style.background = "#fff3cd";
     noticeEl.style.color = "#856404";
     
@@ -991,13 +990,13 @@ function renderCart() {
   let total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.cost), 0);
   let hasMrpItems = cart.some(p => p.isMrp);
 
-  // Free delivery threshold check (₹200)
-  if (total >= 200) {
-    noticeEl.textContent = "🎉 Congratulations! You qualify for FREE Delivery!";
+  // Free delivery & Min order threshold check (₹500)
+  if (total >= 500) {
+    noticeEl.textContent = "🎉 Congratulations! You qualify for FREE Delivery & Order!";
     noticeEl.style.background = "#d4edda";
     noticeEl.style.color = "#155724";
   } else {
-    noticeEl.textContent = `🚚 Add items worth ₹${200 - total} more for Free Delivery!`;
+    noticeEl.textContent = `🚚 Add items worth ₹${500 - total} more to place order (Min ₹500)!`;
     noticeEl.style.background = "#fff3cd";
     noticeEl.style.color = "#856404";
   }
@@ -1036,6 +1035,13 @@ function toggleCart() {
 function sendOrder() {
   if (!cart.length) {
     alert("Please add items to your cart first.");
+    return;
+  }
+
+  // ₹500 Minimum Order Limitation Check
+  const total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.cost), 0);
+  if (total < 500) {
+    alert(`न्यूनतम ऑर्डर ₹500 का होना चाहिए। कृपया ₹${500 - total} का सामान और जोड़ें।`);
     return;
   }
 
