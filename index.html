@@ -483,7 +483,7 @@ footer .brand {
   right: 0;
   top: 0;
   height: 100%;
-  width: min(400px, 94vw);
+  width: min(420px, 94vw);
   background: #fff;
   z-index: 50;
   box-shadow: -8px 0 30px #0003;
@@ -555,7 +555,7 @@ footer .brand {
 /* UPI Payment Section */
 .upi-section {
   margin-top: 15px;
-  border: 1px dashed #d9a62e;
+  border: 2px dashed #d9a62e;
   background: #fffdf7;
   padding: 12px;
   border-radius: 8px;
@@ -682,7 +682,7 @@ footer .brand {
     </div>
     <div class="feature">
       ✓<b>Easy Payments</b>
-      <span>Cash / UPI accepted</span>
+      <span>Online Prepaid Only</span>
     </div>
   </div>
 
@@ -757,19 +757,26 @@ footer .brand {
     <textarea id="custAddress" class="cust-input" rows="2" placeholder="House no, Street, Landmark, Area..."></textarea>
   </div>
 
-  <!-- Real UPI In-App Payment & QR Code Section -->
-  <details class="upi-section">
-    <summary>💳 Pay Online (GPay / PhonePe / Paytm)</summary>
-    <div style="margin-top:10px">
-      <!-- One-Click In-App Payment Button for Mobile -->
+  <!-- Real UPI In-App Payment & QR Code Section (Always Visible for Mandatory Pre-Payment) -->
+  <div class="upi-section">
+    <b style="color:var(--maroon);font-size:14px;">💳 Step 1: Pay Online (Mandatory)</b>
+    <div style="margin-top:8px">
       <a id="directUpiBtn" class="direct-pay-btn" href="#">⚡ Pay Directly via UPI App</a>
       
-      <p style="font-size:12px;margin:5px 0;color:#444">Ya Scanner se scan karein:</p>
+      <p style="font-size:12px;margin:5px 0;color:#444">या QR Code स्कैन करके पेमेंट करें:</p>
       <img id="upiQrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=7838186908@pthdfc%26pn=Ankit%20Aggarwal%20Sweets" alt="UPI QR Code" style="width:140px;height:140px;border-radius:8px;border:1px solid #ddd;margin:5px 0">
       <p style="font-size:13px;font-weight:bold;color:var(--maroon);margin:3px 0">UPI ID: 7838186908@pthdfc</p>
-      <small style="font-size:11px;color:#777">Payment hone ke baad WhatsApp par order confirm karein.</small>
     </div>
-  </details>
+  </div>
+
+  <!-- Step 2: Payment Confirmation UTR Field -->
+  <div style="margin-top:12px;background:#fef6f6;border:1px solid #f5c6cb;padding:10px;border-radius:8px;">
+    <label style="font-family:Arial,sans-serif;font-weight:bold;font-size:13px;color:#721c24;display:block;">
+      📝 Step 2: UPI Transaction ID / UTR No. *
+    </label>
+    <small style="font-size:11px;color:#555;display:block;margin-top:2px;">(पेमेंट के बाद PhonePe/GPay/Paytm से 12-अंकों का UTR यहाँ भरें)</small>
+    <input type="text" id="custUtr" class="cust-input" placeholder="12 अंकों का UTR / Ref No दर्ज करें" maxlength="22">
+  </div>
 
   <button class="checkout" onclick="sendOrder()">Order on WhatsApp</button>
 </aside>
@@ -992,7 +999,7 @@ function renderCart() {
 
   // Free delivery & Min order threshold check (₹500)
   if (total >= 500) {
-    noticeEl.textContent = "🎉 Congratulations! You qualify for FREE Delivery & Order!";
+    noticeEl.textContent = "🎉 You qualify for FREE Delivery & Order!";
     noticeEl.style.background = "#d4edda";
     noticeEl.style.color = "#155724";
   } else {
@@ -1038,24 +1045,33 @@ function sendOrder() {
     return;
   }
 
-  // ₹500 Minimum Order Limitation Check
+  // 1. ₹500 Minimum Order Check
   const total = cart.reduce((s, p) => s + (p.isMrp ? 0 : p.cost), 0);
   if (total < 500) {
     alert(`न्यूनतम ऑर्डर ₹500 का होना चाहिए। कृपया ₹${500 - total} का सामान और जोड़ें।`);
     return;
   }
 
+  // 2. Customer Name & Address Validation
   const name = document.getElementById("custName").value.trim();
   const address = document.getElementById("custAddress").value.trim();
+  const utr = document.getElementById("custUtr").value.trim();
 
   if (!name) {
-    alert("Kripya apna Naam bhariye.");
+    alert("कृपया अपना नाम भरें।");
     document.getElementById("custName").focus();
     return;
   }
   if (!address) {
-    alert("Kripya apna Delivery Address bhariye.");
+    alert("कृपया अपना डिलीवरी पता भरें।");
     document.getElementById("custAddress").focus();
+    return;
+  }
+
+  // 3. Mandatory Payment Check (UTR / Ref ID)
+  if (!utr || utr.length < 8) {
+    alert("⚠️ ऑर्डर से पहले ऑनलाइन पेमेंट करना अनिवार्य है!\n\nकृपया ऊपर दिए गए 'Pay Directly via UPI App' या QR Code से ₹" + total + " का भुगतान करें और फिर 12 अंकों का UTR / Transaction No. यहाँ दर्ज करें।");
+    document.getElementById("custUtr").focus();
     return;
   }
 
@@ -1063,10 +1079,12 @@ function sendOrder() {
   const totalText = document.getElementById("total").innerText;
 
   const orderMessage = 
-`*New Order - Ankit Aggarwal Sweets*
+`*New Prepaid Order - Ankit Aggarwal Sweets*
 --------------------------------
 *Customer Name:* ${name}
 *Delivery Address:* ${address}
+*Payment Status:* PAID ONLINE ✅
+*Transaction / UTR ID:* ${utr}
 --------------------------------
 *Items Ordered:*
 ${itemsText}
@@ -1075,7 +1093,7 @@ ${itemsText}
 *${totalText}*
 *(Note: Bikano items will be charged as per printed MRP)*
 --------------------------------
-Please confirm my order.`;
+Kripya mera payment verify karke order pack karein.`;
 
   const url = `https://wa.me/917838186908?text=${encodeURIComponent(orderMessage)}`;
   window.open(url, "_blank");
