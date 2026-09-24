@@ -563,13 +563,6 @@ footer .brand {
   font-family: Arial, sans-serif;
 }
 
-.upi-section summary {
-  cursor: pointer;
-  font-weight: bold;
-  color: var(--maroon);
-  font-size: 14px;
-}
-
 .direct-pay-btn {
   display: block;
   background: #1a73e8;
@@ -681,8 +674,8 @@ footer .brand {
       <span>Quick doorstep service</span>
     </div>
     <div class="feature">
-      ✓<b>Easy Payments</b>
-      <span>Online Prepaid Only</span>
+      ✓<b>Online Prepaid</b>
+      <span>100% Advance Payment Only</span>
     </div>
   </div>
 
@@ -757,7 +750,7 @@ footer .brand {
     <textarea id="custAddress" class="cust-input" rows="2" placeholder="House no, Street, Landmark, Area..."></textarea>
   </div>
 
-  <!-- Real UPI In-App Payment & QR Code Section (Always Visible for Mandatory Pre-Payment) -->
+  <!-- Step 1: Real UPI Payment -->
   <div class="upi-section">
     <b style="color:var(--maroon);font-size:14px;">💳 Step 1: Pay Online (Mandatory)</b>
     <div style="margin-top:8px">
@@ -769,13 +762,16 @@ footer .brand {
     </div>
   </div>
 
-  <!-- Step 2: Payment Confirmation UTR Field -->
-  <div style="margin-top:12px;background:#fef6f6;border:1px solid #f5c6cb;padding:10px;border-radius:8px;">
-    <label style="font-family:Arial,sans-serif;font-weight:bold;font-size:13px;color:#721c24;display:block;">
-      📝 Step 2: UPI Transaction ID / UTR No. *
+  <!-- Step 2: Payment UTR Input with Strict Warnings -->
+  <div style="margin-top:12px;background:#fff2f2;border:1px solid #e8a5a5;padding:12px;border-radius:8px;">
+    <label style="font-family:Arial,sans-serif;font-weight:bold;font-size:13px;color:#900;display:block;">
+      📝 Step 2: UPI Ref / UTR No. (12 Digits) *
     </label>
-    <small style="font-size:11px;color:#555;display:block;margin-top:2px;">(पेमेंट के बाद PhonePe/GPay/Paytm से 12-अंकों का UTR यहाँ भरें)</small>
-    <input type="text" id="custUtr" class="cust-input" placeholder="12 अंकों का UTR / Ref No दर्ज करें" maxlength="22">
+    <small style="font-size:11px;color:#555;display:block;margin:3px 0 6px;">(पेमेंट के बाद PhonePe / GPay रसीद से 12 अंकों का UTR डालें)</small>
+    <input type="text" id="custUtr" class="cust-input" placeholder="e.g. 408512345678" maxlength="12">
+    <div style="font-size:11px;color:#a00;margin-top:6px;font-family:Arial,sans-serif;line-height:1.3;">
+      ⚠️ <b>ध्यान दें:</b> फेक या गलत UTR डालने पर ऑर्डर तुरंत निरस्त होगा और WhatsApp पर पेमेंट का <b>स्क्रीनशॉट भेजना अनिवार्य</b> है।
+    </div>
   </div>
 
   <button class="checkout" onclick="sendOrder()">Order on WhatsApp</button>
@@ -1068,9 +1064,22 @@ function sendOrder() {
     return;
   }
 
-  // 3. Mandatory Payment Check (UTR / Ref ID)
-  if (!utr || utr.length < 8) {
-    alert("⚠️ ऑर्डर से पहले ऑनलाइन पेमेंट करना अनिवार्य है!\n\nकृपया ऊपर दिए गए 'Pay Directly via UPI App' या QR Code से ₹" + total + " का भुगतान करें और फिर 12 अंकों का UTR / Transaction No. यहाँ दर्ज करें।");
+  // 3. Fake UTR & Format Validation
+  const utrRegex = /^[0-9]{12}$/;
+  if (!utrRegex.test(utr)) {
+    alert("⚠️ अमान्य UTR नंबर!\n\nकृपया PhonePe/GPay रसीद से शुद्ध 12 अंकों का असली UTR / Ref No दर्ज करें।");
+    document.getElementById("custUtr").focus();
+    return;
+  }
+
+  // Block identical digits (e.g. 111111111111, 000000000000)
+  const isAllSameDigits = /^(\d)\1{11}$/.test(utr);
+  
+  // Block common dummy series
+  const dummySeries = ["123456789012", "987654321098", "123456789000", "012345678901"];
+
+  if (isAllSameDigits || dummySeries.includes(utr)) {
+    alert("❌ फर्जी UTR नंबर मान्य नहीं है!\n\nकृपया असली पेमेंट रसीद का UTR नंबर दर्ज करें। गलत नंबर डालने पर ऑर्डर प्रोसेस नहीं किया जाएगा।");
     document.getElementById("custUtr").focus();
     return;
   }
@@ -1083,8 +1092,8 @@ function sendOrder() {
 --------------------------------
 *Customer Name:* ${name}
 *Delivery Address:* ${address}
-*Payment Status:* PAID ONLINE ✅
-*Transaction / UTR ID:* ${utr}
+*Payment Status:* ADVANCE PAID ONLINE ✅
+*UTR / Ref No:* ${utr}
 --------------------------------
 *Items Ordered:*
 ${itemsText}
@@ -1093,7 +1102,7 @@ ${itemsText}
 *${totalText}*
 *(Note: Bikano items will be charged as per printed MRP)*
 --------------------------------
-Kripya mera payment verify karke order pack karein.`;
+⚠️ *जरूरी:* ऑर्डर पैक करवाने के लिए इस मैसेज के साथ अपनी *Payment Receipt का Screenshot* जरूर भेजें। बिना स्क्रीनशॉट और UTR मैच हुए ऑर्डर नहीं भेजा जाएगा।`;
 
   const url = `https://wa.me/917838186908?text=${encodeURIComponent(orderMessage)}`;
   window.open(url, "_blank");
